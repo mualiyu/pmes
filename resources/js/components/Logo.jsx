@@ -6,13 +6,9 @@ export default function Logo(props) {
 
   return (
     <Group wrap="nowrap" {...props}>
-      <Center
-        bg={computedColorScheme === "dark" ? "blue.8" : "blue.9"}
-        p={5}
-        style={{ borderRadius: "100%" }}
-      >
-        <IconChartArcs style={{ stroke: "#fff", width: rem(25), height: rem(25), flexShrink: 0 }} />
-      </Center>
+
+        <img src="ONSA_WHITE_BG.jpg" style={{width:"60px", height:"auto", borderRadius:"50px"}} />
+      
       <Text fz={20} fw={600}>
         NCCC-PMT
       </Text>

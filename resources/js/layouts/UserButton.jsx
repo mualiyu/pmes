@@ -49,9 +49,7 @@ export default function UserButton() {
         <UnstyledButton
           className={classes.user}
           bg={
-            computedColorScheme === "light"
-              ? darken(colors.blue[8], 0.15)
-              : "var(--mantine-color-dark-7)"
+            "#47624A"
           }
         >
           <Group>
@@ -69,7 +67,7 @@ export default function UserButton() {
                 {user.name}
               </Text>
 
-              <Text c={computedColorScheme === "light" ? "blue.4" : "dimmed"} size="xs">
+              <Text c={computedColorScheme === "light" ? "green.4" : "dimmed"} size="xs">
                 {user.job_title}
               </Text>
             </div>
