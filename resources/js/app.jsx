@@ -15,7 +15,7 @@ import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { createRoot } from "react-dom/client";
 
 const theme = createTheme({
-  primaryColor: "blue",
+  primaryColor: "green",
   primaryShade: { light: 6, dark: 8 },
   colors: {
     dark: [

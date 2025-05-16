@@ -58,27 +58,27 @@ export default function Sidebar() {
           },
         ],
       },
-      {
-        label: "Clients",
-        icon: IconBuildingSkyscraper,
-        active: route().current("clients.*"),
-        opened: route().current("clients.*"),
-        visible: can("view client users") || can("view client companies"),
-        links: [
-          {
-            label: "Users",
-            link: route("clients.users.index"),
-            active: route().current("clients.users.*"),
-            visible: can("view client users"),
-          },
-          {
-            label: "Companies",
-            link: route("clients.companies.index"),
-            active: route().current("clients.companies.*"),
-            visible: can("view client companies"),
-          },
-        ],
-      },
+      // {
+      //   label: "Clients",
+      //   icon: IconBuildingSkyscraper,
+      //   active: route().current("clients.*"),
+      //   opened: route().current("clients.*"),
+      //   visible: can("view client users") || can("view client companies"),
+      //   links: [
+      //     {
+      //       label: "Users",
+      //       link: route("clients.users.index"),
+      //       active: route().current("clients.users.*"),
+      //       visible: can("view client users"),
+      //     },
+      //     {
+      //       label: "Companies",
+      //       link: route("clients.companies.index"),
+      //       active: route().current("clients.companies.*"),
+      //       visible: can("view client companies"),
+      //     },
+      //   ],
+      // },
       {
         label: "Users",
         icon: IconUsers,
@@ -86,34 +86,34 @@ export default function Sidebar() {
         active: route().current("users.*"),
         visible: can("view users"),
       },
-      {
-        label: "Invoices",
-        icon: IconFileDollar,
-        link: route("invoices.index"),
-        active: route().current("invoices.*"),
-        visible: can("view invoices"),
-      },
-      {
-        label: "Reports",
-        icon: IconReportAnalytics,
-        active: route().current("reports.*"),
-        opened: route().current("reports.*"),
-        visible: can("view logged time sum report") || can("view daily logged time report"),
-        links: [
-          {
-            label: "Logged time sum",
-            link: route("reports.logged-time.sum"),
-            active: route().current("reports.logged-time.sum"),
-            visible: can("view logged time sum report"),
-          },
-          {
-            label: "Daily logged time",
-            link: route("reports.logged-time.daily"),
-            active: route().current("reports.logged-time.daily"),
-            visible: can("view daily logged time report"),
-          },
-        ],
-      },
+      // {
+      //   label: "Invoices",
+      //   icon: IconFileDollar,
+      //   link: route("invoices.index"),
+      //   active: route().current("invoices.*"),
+      //   visible: can("view invoices"),
+      // },
+      // {
+      //   label: "Reports",
+      //   icon: IconReportAnalytics,
+      //   active: route().current("reports.*"),
+      //   opened: route().current("reports.*"),
+      //   visible: can("view logged time sum report") || can("view daily logged time report"),
+      //   links: [
+      //     {
+      //       label: "Logged time sum",
+      //       link: route("reports.logged-time.sum"),
+      //       active: route().current("reports.logged-time.sum"),
+      //       visible: can("view logged time sum report"),
+      //     },
+      //     {
+      //       label: "Daily logged time",
+      //       link: route("reports.logged-time.daily"),
+      //       active: route().current("reports.logged-time.daily"),
+      //       visible: can("view daily logged time report"),
+      //     },
+      //   ],
+      // },
       {
         label: "Settings",
         icon: IconSettings,

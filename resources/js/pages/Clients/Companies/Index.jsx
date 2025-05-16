@@ -59,6 +59,8 @@ const ClientCompaniesIndex = () => {
             <Button
               leftSection={<IconPlus size={14} />}
               radius='xl'
+              variant="gradient"
+              gradient={{ from: 'green', to: 'green' }}
               onClick={() => redirectTo('clients.companies.create')}
             >
               Create
