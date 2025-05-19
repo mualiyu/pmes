@@ -89,7 +89,7 @@ const ActivityIndex = () => {
             <Title order={3} mb="lg">
               {date}
             </Title>
-            <Timeline color="green" active={9999} bulletSize={32} lineWidth={3} mb="xl">
+            <Timeline active={9999} bulletSize={32} lineWidth={3} mb="xl">
               {groupedActivities[date].map((activity) => (
                 <Timeline.Item key={activity.id} bullet={getIcon(activity.title)}>
                   <div>
@@ -97,8 +97,7 @@ const ActivityIndex = () => {
                       href="#"
                       fz="md"
                       fw={600}
-                      variant="gradient"
-                      gradient={{ from: 'green', to: 'green' }}
+                     
                       onClick={() =>
                         redirectTo("projects.tasks.open", [
                           activity.project.id,
@@ -114,8 +113,7 @@ const ActivityIndex = () => {
                     <Anchor
                       href="#"
                       fz="xs"
-                      variant="gradient"
-                      gradient={{ from: 'green', to: 'green' }}
+                      
                       onClick={() => redirectTo("projects.tasks", [activity.project_id])}
                     >
                       {activity.project.name}

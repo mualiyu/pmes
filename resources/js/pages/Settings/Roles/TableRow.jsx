@@ -9,7 +9,7 @@ export default function TableRow({ item }) {
   return (
     <Table.Tr key={item.id}>
       <Table.Td>
-        <Text fz="sm" tt="capitalize" c={isLocked(item.name) ? "blue" : ""}>
+        <Text fz="sm" tt="capitalize" c={isLocked(item.name) ? "#5F9164" : ""}>
           {item.name}
         </Text>
       </Table.Td>

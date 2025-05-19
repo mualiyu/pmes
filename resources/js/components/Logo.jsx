@@ -7,10 +7,16 @@ export default function Logo(props) {
   return (
     <Group wrap="nowrap" {...props}>
 
-        <img src="ONSA_WHITE_BG.jpg" style={{width:"60px", height:"auto", borderRadius:"50px"}} />
-      
-      <Text fz={20} fw={600}>
-        NCCC-PMT
+        <img src="White-NCCC-Logo.png" style={{width:"59%", height:"auto", borderRadius:"4px"}} />
+
+     <Text
+  style={{
+    color: computedColorScheme === 'dark' ? '#F0F0F0' : '#094509',
+  }}
+  fz={25}
+  fw={600}
+>
+        PMT
       </Text>
     </Group>
   );
