@@ -88,7 +88,7 @@ const CompanyEdit = () => {
               <FileInput
                 label='Logo'
                 placeholder='Choose image'
-                accept='image/png,image/jpeg'
+                
                 onChange={image => updateValue('logo', image)}
                 clearable
                 error={form.errors.logo}

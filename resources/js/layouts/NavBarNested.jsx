@@ -58,27 +58,27 @@ export default function Sidebar() {
           },
         ],
       },
-      // {
-      //   label: "Clients",
-      //   icon: IconBuildingSkyscraper,
-      //   active: route().current("clients.*"),
-      //   opened: route().current("clients.*"),
-      //   visible: can("view client users") || can("view client companies"),
-      //   links: [
-      //     {
-      //       label: "Users",
-      //       link: route("clients.users.index"),
-      //       active: route().current("clients.users.*"),
-      //       visible: can("view client users"),
-      //     },
-      //     {
-      //       label: "Companies",
-      //       link: route("clients.companies.index"),
-      //       active: route().current("clients.companies.*"),
-      //       visible: can("view client companies"),
-      //     },
-      //   ],
-      // },
+      {
+        label: "NCCC",
+        icon: IconBuildingSkyscraper,
+        active: route().current("clients.*"),
+        opened: route().current("clients.*"),
+        visible: can("view client users") || can("view client companies"),
+        links: [
+          // {
+          //   label: "Users",
+          //   link: route("clients.users.index"),
+          //   active: route().current("clients.users.*"),
+          //   visible: can("view client users"),
+          // },
+          {
+            label: "Directorates",
+            link: route("clients.companies.index"),
+            active: route().current("clients.companies.*"),
+            visible: can("view client companies"),
+          },
+        ],
+      },
       {
         label: "Users",
         icon: IconUsers,
@@ -122,7 +122,7 @@ export default function Sidebar() {
         visible: can("view owner company") || can("view roles") || can("view labels"),
         links: [
           {
-            label: "Company",
+            label: "Organization",
             link: route("settings.company.edit"),
             active: route().current("settings.company.*"),
             visible: can("view owner company"),
@@ -150,7 +150,8 @@ export default function Sidebar() {
         <Group justify="space-between">
           <Logo style={{ width: rem(120) }} />
           <Text size="xs" className={classes.version}>
-            v{version}
+            {/* v{version} */}
+             v1.0.0
           </Text>
         </Group>
       </div>
