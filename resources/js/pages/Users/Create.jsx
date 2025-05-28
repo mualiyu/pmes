@@ -115,7 +115,7 @@ const UserCreate = () => {
             error={form.errors.roles}
           />
 
-          <Group grow mt="md">
+          {/* <Group grow mt="md">
             <TextInput
               label="Phone"
               placeholder="Users phone number"
@@ -135,7 +135,7 @@ const UserCreate = () => {
               onChange={(value) => updateValue("rate", value)}
               error={form.errors.rate}
             />
-          </Group>
+          </Group> */}
 
           <Divider mt="xl" mb="md" label="Login credentials" labelPosition="center" />
 

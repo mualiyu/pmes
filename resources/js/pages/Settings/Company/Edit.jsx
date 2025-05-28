@@ -163,7 +163,7 @@ const CompanyEdit = () => {
             />
           </Fieldset>
 
-          <Fieldset
+          {/* <Fieldset
             legend='Details'
             mt='xl'
           >
@@ -249,7 +249,7 @@ const CompanyEdit = () => {
                 disabled={!can('edit owner company')}
               />
             </Group>
-          </Fieldset>
+          </Fieldset> */}
 
           <Fieldset
             legend='Contact'

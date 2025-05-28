@@ -37,8 +37,8 @@ export function ProjectCard({ project }) {
               {project.name}
             </Title>
           </Group>
-          <Text fz="xs" fw={700} c="dimmed" mb={4}>
-            {/* {project.client_company.name} */}
+          <Text fz="xs" fw={700} c="dimmed" mb={4}>  
+            {project.client_company.name}
           </Text>
           <div>
             <Tooltip label="Completed tasks" openDelay={500} withArrow>
@@ -60,7 +60,7 @@ export function ProjectCard({ project }) {
             },
             {
               value: completedPercent,
-              color: "#5F9164",
+              color: "#537D5D",
               tooltip: `Completed: ${project.completed_tasks_count}`,
             },
           ]}

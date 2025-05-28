@@ -263,7 +263,7 @@ export function EditTaskDrawer() {
                 mt='md'
               />
 
-              <NumberInput
+              {/* <NumberInput
                 label='Time estimation'
                 mt='md'
                 decimalScale={2}
@@ -275,9 +275,9 @@ export function EditTaskDrawer() {
                 suffix=' hours'
                 onChange={value => updateValue('estimation', value)}
                 readOnly={!can('edit task')}
-              />
+              /> */}
 
-              <Select
+              {/* <Select
                 label='Pricing type'
                 placeholder='Select pricing type'
                 mt='md'
@@ -285,9 +285,9 @@ export function EditTaskDrawer() {
                 onChange={value => updateValue('pricing_type', value)}
                 data={pricingTypes}
                 readOnly={!can('edit task')}
-              />
+              /> */}
 
-              {isFixedPrice && (can('view time logs') || can('add time log')) && (
+              {/* {isFixedPrice && (can('view time logs') || can('add time log')) && (
                 <NumberInput
                   label='Fixed price'
                   mt='md'
@@ -301,22 +301,22 @@ export function EditTaskDrawer() {
                   prefix={currencySymbol}
                   readOnly={!can('edit task')}
                 />
-              )}
+              )} */}
 
-              {!isFixedPrice && (can('view time logs') || can('add time log')) && (
+              {/* {!isFixedPrice && (can('view time logs') || can('add time log')) && (
                 <Timer
                   mt='xl'
                   task={task}
                 />
-              )}
+              )} */}
 
-              <Checkbox
+              {/* <Checkbox
                 label='Billable'
                 mt='xl'
                 checked={data.billable}
                 onChange={event => updateValue('billable', event.currentTarget.checked)}
                 disabled={!can('edit task')}
-              />
+              /> */}
 
               {!hasRoles(user, ['client']) && (
                 <Checkbox

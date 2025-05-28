@@ -64,7 +64,7 @@ const ClientCompanyEdit = () => {
         mb='lg'
       >
         <Grid.Col span='auto'>
-          <Title order={1}>Edit company</Title>
+          <Title order={1}>Edit Directorates</Title>
         </Grid.Col>
         <Grid.Col span='content'></Grid.Col>
       </Grid>
@@ -80,7 +80,7 @@ const ClientCompanyEdit = () => {
             error={form.errors.name}
           />
 
-          <Select
+          {/* <Select
             label='Default currency'
             placeholder='Select currency'
             required
@@ -90,9 +90,9 @@ const ClientCompanyEdit = () => {
             onChange={value => updateValue('currency_id', value)}
             data={currencies}
             error={form.errors.currency_id}
-          />
+          /> */}
 
-          <MultiSelect
+          {/* <MultiSelect
             label='Clients'
             placeholder='Select clients'
             required
@@ -101,9 +101,9 @@ const ClientCompanyEdit = () => {
             onChange={values => updateValue('clients', values)}
             data={clients}
             error={form.errors.clients}
-          />
+          /> */}
 
-          <Fieldset
+          {/* <Fieldset
             legend='Location'
             mt='xl'
           >
@@ -198,7 +198,7 @@ const ClientCompanyEdit = () => {
               onChange={e => updateValue('swift', e.target.value)}
               error={form.errors.swift}
             />
-          </Fieldset>
+          </Fieldset> */}
 
           <Fieldset
             legend='Contact'
@@ -222,14 +222,14 @@ const ClientCompanyEdit = () => {
               />
             </Group>
 
-            <TextInput
+            {/* <TextInput
               label='Web'
               placeholder='Web'
               mt='md'
               value={form.data.web}
               onChange={e => updateValue('web', e.target.value)}
               error={form.errors.web}
-            />
+            /> */}
           </Fieldset>
 
           <Group

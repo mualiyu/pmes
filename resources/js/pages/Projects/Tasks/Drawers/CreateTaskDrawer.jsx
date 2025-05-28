@@ -230,7 +230,7 @@ export function CreateTaskDrawer() {
             mt='md'
           />
 
-          <NumberInput
+          {/* <NumberInput
             label='Time estimation'
             mt='md'
             decimalScale={2}
@@ -241,9 +241,9 @@ export function CreateTaskDrawer() {
             step={0.5}
             suffix=' hours'
             onChange={value => updateValue('estimation', value)}
-          />
+          /> */}
 
-          <Select
+          {/* <Select
             label='Pricing type'
             placeholder='Select pricing type'
             required
@@ -252,9 +252,9 @@ export function CreateTaskDrawer() {
             onChange={value => updateValue('pricing_type', value)}
             data={pricingTypes}
             error={form.errors.pricing_type}
-          />
+          /> */}
 
-          {isFixedPrice ? (
+          {/* {isFixedPrice ? (
             <NumberInput
               label='Fixed price'
               mt='md'
@@ -267,14 +267,14 @@ export function CreateTaskDrawer() {
               onChange={value => updateValue('fixed_price', value)}
               error={form.errors.fixed_price}
             />
-          ) : null}
+          ) : null} */}
 
-          <Checkbox
+          {/* <Checkbox
             label='Billable'
             mt='xl'
             checked={form.data.billable}
             onChange={event => updateValue('billable', event.currentTarget.checked)}
-          />
+          /> */}
 
           {!hasRoles(user, ['client']) && (
             <Checkbox
