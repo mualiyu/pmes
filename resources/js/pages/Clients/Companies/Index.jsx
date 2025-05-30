@@ -48,7 +48,7 @@ const ClientCompaniesIndex = () => {
         <Grid.Col span='content'>
           <Group>
             <SearchInput
-              placeholder='Search companies'
+              placeholder='Search Entities'
               search={search}
             />
             <ArchivedFilterButton />
