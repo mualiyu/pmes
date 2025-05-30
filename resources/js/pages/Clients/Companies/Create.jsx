@@ -50,7 +50,7 @@ const ClientCompanyCreate = () => {
           onClick={() => redirectTo('clients.companies.index')}
           fz={14}
         >
-          Companies
+          Entities
         </Anchor>
         <div>Create</div>
       </Breadcrumbs>
@@ -62,7 +62,7 @@ const ClientCompanyCreate = () => {
         mb='lg'
       >
         <Grid.Col span='auto'>
-          <Title order={1}>Create Directorates</Title>
+          <Title order={1}>Create Entity</Title>
         </Grid.Col>
         <Grid.Col span='content'></Grid.Col>
       </Grid>
@@ -71,7 +71,7 @@ const ClientCompanyCreate = () => {
         <form onSubmit={submit}>
           <TextInput
             label='Name'
-            placeholder='Directorate Name'
+            placeholder='Entity Name'
             required
             value={form.data.name}
             onChange={e => updateValue('name', e.target.value)}

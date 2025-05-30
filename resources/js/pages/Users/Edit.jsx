@@ -79,13 +79,13 @@ const UserEdit = () => {
                 clearable
                 error={form.errors.avatar}
               />
-              <Text size="xs" c="dimmed" mt="sm">
+              {/* <Text size="xs" c="dimmed" mt="sm">
                 If no image is uploaded we will try to fetch it via{" "}
                 <Anchor href="https://unavatar.io" target="_blank" opacity={0.6}>
                   unavatar.io
                 </Anchor>{" "}
                 service.
-              </Text>
+              </Text> */}
             </Grid.Col>
           </Grid>
 

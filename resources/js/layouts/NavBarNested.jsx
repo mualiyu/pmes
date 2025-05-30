@@ -72,7 +72,7 @@ export default function Sidebar() {
           //   visible: can("view client users"),
           // },
           {
-            label: "Directorates",
+            label: "Entities",
             link: route("clients.companies.index"),
             active: route().current("clients.companies.*"),
             visible: can("view client companies"),
@@ -122,7 +122,7 @@ export default function Sidebar() {
         visible: can("view owner company") || can("view roles") || can("view labels"),
         links: [
           {
-            label: "Organization",
+            label: "Organisation",
             link: route("settings.company.edit"),
             active: route().current("settings.company.*"),
             visible: can("view owner company"),

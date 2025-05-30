@@ -98,7 +98,7 @@ const ProjectCreate = ({ dropdowns: { companies, users, currencies } }) => {
           />
 
           <Select
-            label='Directorate requesting work'
+            label='Project Owner'
             placeholder='Select company'
             required
             mt='md'
@@ -109,7 +109,7 @@ const ProjectCreate = ({ dropdowns: { companies, users, currencies } }) => {
           />
 
           <MultiSelect
-            label='Grant access to users'
+            label='Memebers'
             placeholder='Select users'
             mt='md'
             searchable

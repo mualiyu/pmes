@@ -318,7 +318,7 @@ export function EditTaskDrawer() {
                 disabled={!can('edit task')}
               /> */}
 
-              {!hasRoles(user, ['client']) && (
+              {/* {!hasRoles(user, ['client']) && (
                 <Checkbox
                   label='Hidden from clients'
                   mt='md'
@@ -328,7 +328,7 @@ export function EditTaskDrawer() {
                   }
                   disabled={!can('edit task')}
                 />
-              )}
+              )} */}
 
               <MultiSelect
                 label='Subscribers'

@@ -64,7 +64,7 @@ const ClientCompanyEdit = () => {
         mb='lg'
       >
         <Grid.Col span='auto'>
-          <Title order={1}>Edit Directorates</Title>
+          <Title order={1}>Edit Entities</Title>
         </Grid.Col>
         <Grid.Col span='content'></Grid.Col>
       </Grid>
@@ -73,7 +73,7 @@ const ClientCompanyEdit = () => {
         <form onSubmit={submit}>
           <TextInput
             label='Name'
-            placeholder='Company name'
+            placeholder='Entity name'
             required
             value={form.data.name}
             onChange={e => updateValue('name', e.target.value)}

@@ -276,14 +276,14 @@ export function CreateTaskDrawer() {
             onChange={event => updateValue('billable', event.currentTarget.checked)}
           /> */}
 
-          {!hasRoles(user, ['client']) && (
+          {/* {!hasRoles(user, ['client']) && (
             <Checkbox
               label='Hidden from clients'
               mt='md'
               checked={form.data.hidden_from_clients}
               onChange={event => updateValue('hidden_from_clients', event.currentTarget.checked)}
             />
-          )}
+          )} */}
         </div>
       </form>
     </Drawer>

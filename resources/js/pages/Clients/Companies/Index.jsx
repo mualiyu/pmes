@@ -15,7 +15,7 @@ const ClientCompaniesIndex = () => {
   const { items } = usePage().props;
 
   const columns = prepareColumns([
-    { label: 'Directorates', column: 'name' },
+    { label: 'Entities', column: 'name' },
     { label: 'Email', column: 'email' },
     // { label: 'Clients', sortable: false },
     {
