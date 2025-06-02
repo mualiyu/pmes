@@ -24,6 +24,7 @@ const ClientCompanyEdit = () => {
   } = usePage().props;
   const [form, submit, updateValue] = useForm('post', route('clients.companies.update', item.id), {
     _method: 'put',
+    code: item.code || '',
     name: item.name,
     address: item.address || '',
     postal_code: item.postal_code || '',
@@ -71,6 +72,14 @@ const ClientCompanyEdit = () => {
 
       <ContainerBox maw={600}>
         <form onSubmit={submit}>
+          <TextInput
+            label='Code'
+            placeholder='E.g. CNII'
+            required
+            value={form.data.code}
+            onChange={e => updateValue('code', e.target.value)}
+            error={form.errors.code}
+          />
           <TextInput
             label='Name'
             placeholder='Entity name'

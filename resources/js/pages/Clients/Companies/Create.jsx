@@ -22,6 +22,7 @@ const ClientCompanyCreate = () => {
     dropdowns: { clients, countries, currencies },
   } = usePage().props;
   const [form, submit, updateValue] = useForm('post', route('clients.companies.store'), {
+    code: '',
     name: '',
     address: '',
     postal_code: '',
@@ -69,6 +70,14 @@ const ClientCompanyCreate = () => {
 
       <ContainerBox maw={600}>
         <form onSubmit={submit}>
+          <TextInput
+            label='Code'
+            placeholder='E.g. CNII'
+            required
+            value={form.data.code}
+            onChange={e => updateValue('code', e.target.value)}
+            error={form.errors.code}
+          />
           <TextInput
             label='Name'
             placeholder='Entity Name'

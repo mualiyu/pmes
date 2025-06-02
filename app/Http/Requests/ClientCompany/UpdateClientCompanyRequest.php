@@ -22,6 +22,7 @@ class UpdateClientCompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'code' => ['nullable', 'string', 'max:255'],
             'name' => 'required|string',
             'address' => 'string|nullable',
             'postal_code' => 'string|nullable',
