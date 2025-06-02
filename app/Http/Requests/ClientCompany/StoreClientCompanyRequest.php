@@ -23,6 +23,7 @@ class StoreClientCompanyRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'code' => 'required|string',
             'address' => 'string|nullable',
             'postal_code' => 'string|nullable',
             'city' => 'string|nullable',

@@ -18,6 +18,7 @@ class ClientCompany extends Model implements AuditableContract
     use Archivable, Auditable, HasFactory, IsSearchable, IsSortable;
 
     protected $fillable = [
+        'code', //added this code after creating migration to add code field in table
         'name',
         'address',
         'postal_code',

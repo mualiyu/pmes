@@ -68,6 +68,7 @@ class ClientCompanyController extends Controller
 
     public function update(ClientCompany $company, UpdateClientCompanyRequest $request)
     {
+        // dd($company);
         (new UpdateClientCompany)->update($company, $request->validated());
 
         return redirect()->route('clients.companies.index')->success('Company updated', 'The company was successfully updated.');
