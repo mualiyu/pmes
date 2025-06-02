@@ -4,3 +4,33 @@
     --mantine-color-body: var(--mantine-color-gray-0);
     --mantine-color-anchor: var(--mantine-color-blue-7);
 }
+globalStyles: (theme) => ({
+  body: {
+    backgroundColor:
+      theme.colorScheme === "dark" ? theme.colors.dark[7] : "#f9fafa",
+    color:
+      theme.colorScheme === "dark"
+        ? theme.colors.dark[0] // Light text on dark background
+        : "#1a1a1a",           // Dark text on light background
+  },
+  a: {
+    color:
+      theme.colorScheme === "dark" ? "#cbdff4" : "#2c4a67",
+    textDecoration: "none",
+    transition: "color 0.2s ease",
+    "&:hover": {
+      color:
+        theme.colorScheme === "dark" ? "#ffffff" : "#3d5f82",
+    },
+    "&.active": {
+      color: theme.colors.custom[6],
+      fontWeight: 600,
+    },
+  },
+  "*": {
+    color:
+      theme.colorScheme === "dark"
+        ? theme.colors.dark[0]
+        : "inherit", // Ensure inherited color in light mode
+  },
+}),

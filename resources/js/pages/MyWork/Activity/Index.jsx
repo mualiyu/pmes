@@ -97,6 +97,7 @@ const ActivityIndex = () => {
                       href="#"
                       fz="md"
                       fw={600}
+                     
                       onClick={() =>
                         redirectTo("projects.tasks.open", [
                           activity.project.id,
@@ -106,12 +107,13 @@ const ActivityIndex = () => {
                     >
                       {activity.title}
                     </Anchor>
-                    <Text c="dimmed" size="sm">
+                    <Text c="dimmed" size="sm" >
                       {activity.subtitle}
                     </Text>
                     <Anchor
                       href="#"
                       fz="xs"
+                      
                       onClick={() => redirectTo("projects.tasks", [activity.project_id])}
                     >
                       {activity.project.name}

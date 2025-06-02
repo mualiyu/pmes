@@ -122,3 +122,15 @@ To use Pusher, sign up, then create a project and copy paste app keys to `.env` 
 - [ ] Write tests.
 - [ ] Optimize frontend and backend.
 - [ ] Consider moving to TypeScript.
+
+## Colors
+1. #537D5D
+2. #73946B
+3. #9EBC8A
+4. #D2D0A0
+
+
+## Colors
+1. #213448
+2. #2A4759
+3. #E5FF70

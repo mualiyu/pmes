@@ -50,7 +50,7 @@ const ClientCompanyCreate = () => {
           onClick={() => redirectTo('clients.companies.index')}
           fz={14}
         >
-          Companies
+          Entities
         </Anchor>
         <div>Create</div>
       </Breadcrumbs>
@@ -62,23 +62,30 @@ const ClientCompanyCreate = () => {
         mb='lg'
       >
         <Grid.Col span='auto'>
-          <Title order={1}>Create company</Title>
+          <Title order={1}>Create Entity</Title>
         </Grid.Col>
         <Grid.Col span='content'></Grid.Col>
       </Grid>
 
       <ContainerBox maw={600}>
         <form onSubmit={submit}>
+
+          <TextInput
+            label='Code'
+            description='E.g. CNII'
+           
+          />
+          
           <TextInput
             label='Name'
-            placeholder='Company name'
+            placeholder='Entity Name'
             required
             value={form.data.name}
             onChange={e => updateValue('name', e.target.value)}
             error={form.errors.name}
           />
 
-          <Select
+          {/* <Select
             label='Default currency'
             placeholder='Select currency'
             required
@@ -99,9 +106,9 @@ const ClientCompanyCreate = () => {
             onChange={values => updateValue('clients', values)}
             data={clients}
             error={form.errors.clients}
-          />
+          /> */}
 
-          <Fieldset
+          {/* <Fieldset
             legend='Location'
             mt='xl'
           >
@@ -208,7 +215,7 @@ const ClientCompanyCreate = () => {
               data={currencies}
               error={form.errors.currency_id}
             />
-          </Fieldset>
+          </Fieldset> */}
 
           <Fieldset
             legend='Contact'
@@ -232,14 +239,14 @@ const ClientCompanyCreate = () => {
               />
             </Group>
 
-            <TextInput
+            {/* <TextInput
               label='Web'
               placeholder='Web'
               mt='md'
               value={form.data.web}
               onChange={e => updateValue('web', e.target.value)}
               error={form.errors.web}
-            />
+            /> */}
           </Fieldset>
 
           <Group

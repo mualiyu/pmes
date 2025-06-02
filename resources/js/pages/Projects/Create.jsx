@@ -98,7 +98,7 @@ const ProjectCreate = ({ dropdowns: { companies, users, currencies } }) => {
           />
 
           <Select
-            label='Company requesting work'
+            label='Project Owner'
             placeholder='Select company'
             required
             mt='md'
@@ -109,7 +109,7 @@ const ProjectCreate = ({ dropdowns: { companies, users, currencies } }) => {
           />
 
           <MultiSelect
-            label='Grant access to users'
+            label='Memebers'
             placeholder='Select users'
             mt='md'
             searchable
@@ -119,7 +119,7 @@ const ProjectCreate = ({ dropdowns: { companies, users, currencies } }) => {
             error={form.errors.users}
           />
 
-          <Select
+          {/* <Select
             label='Default pricing type'
             placeholder='Select pricing type'
             required
@@ -128,9 +128,9 @@ const ProjectCreate = ({ dropdowns: { companies, users, currencies } }) => {
             onChange={value => updateValue('default_pricing_type', value)}
             data={pricingTypes}
             error={form.errors.default_pricing_type}
-          />
+          /> */}
 
-          <NumberInput
+          {/* <NumberInput
             label='Hourly rate'
             mt='md'
             allowNegative={false}
@@ -141,7 +141,7 @@ const ProjectCreate = ({ dropdowns: { companies, users, currencies } }) => {
             value={form.data.rate}
             onChange={value => updateValue('rate', value)}
             error={form.errors.rate}
-          />
+          /> */}
 
           <Group
             justify='space-between'

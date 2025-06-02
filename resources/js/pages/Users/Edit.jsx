@@ -65,7 +65,7 @@ const UserEdit = () => {
                   form.data.avatar === null ? item.avatar : URL.createObjectURL(form.data.avatar)
                 }
                 size={120}
-                color="blue"
+                color="#537D5D"
               >
                 {getInitials(form.data.name)}
               </Avatar>
@@ -79,13 +79,13 @@ const UserEdit = () => {
                 clearable
                 error={form.errors.avatar}
               />
-              <Text size="xs" c="dimmed" mt="sm">
+              {/* <Text size="xs" c="dimmed" mt="sm">
                 If no image is uploaded we will try to fetch it via{" "}
                 <Anchor href="https://unavatar.io" target="_blank" opacity={0.6}>
                   unavatar.io
                 </Anchor>{" "}
                 service.
-              </Text>
+              </Text> */}
             </Grid.Col>
           </Grid>
 
@@ -120,7 +120,7 @@ const UserEdit = () => {
             error={form.errors.roles}
           />
 
-          <Group grow mt="md">
+          {/* <Group grow mt="md">
             <TextInput
               label="Phone"
               placeholder="Users phone number"
@@ -140,7 +140,7 @@ const UserEdit = () => {
               onChange={(value) => updateValue("rate", value)}
               error={form.errors.rate}
             />
-          </Group>
+          </Group> */}
 
           <Divider mt="xl" mb="md" label="Login credentials" labelPosition="center" />
 

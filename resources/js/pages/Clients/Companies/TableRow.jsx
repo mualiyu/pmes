@@ -22,7 +22,7 @@ export default function TableRow({ item }) {
           Email
         </Text>
       </Table.Td>
-      <Table.Td>
+      {/* <Table.Td>
         <Group gap='sm'>
           {item.clients.map(item => (
             <Link
@@ -39,7 +39,7 @@ export default function TableRow({ item }) {
             </Link>
           ))}
         </Group>
-      </Table.Td>
+      </Table.Td> */}
       {(can('edit client company') ||
         can('archive client company') ||
         can('restore client company')) && (

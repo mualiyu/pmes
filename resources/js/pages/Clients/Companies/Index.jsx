@@ -15,9 +15,9 @@ const ClientCompaniesIndex = () => {
   const { items } = usePage().props;
 
   const columns = prepareColumns([
-    { label: 'Company', column: 'name' },
+    { label: 'Entities', column: 'name' },
     { label: 'Email', column: 'email' },
-    { label: 'Clients', sortable: false },
+    // { label: 'Clients', sortable: false },
     {
       label: 'Actions',
       sortable: false,
@@ -48,7 +48,7 @@ const ClientCompaniesIndex = () => {
         <Grid.Col span='content'>
           <Group>
             <SearchInput
-              placeholder='Search companies'
+              placeholder='Search Entities'
               search={search}
             />
             <ArchivedFilterButton />
@@ -59,6 +59,8 @@ const ClientCompaniesIndex = () => {
             <Button
               leftSection={<IconPlus size={14} />}
               radius='xl'
+              variant="gradient"
+              gradient={{ from: 'green', to: 'green' }}
               onClick={() => redirectTo('clients.companies.create')}
             >
               Create

@@ -47,36 +47,47 @@ export default function UserButton() {
     >
       <Menu.Target>
         <UnstyledButton
-          className={classes.user}
-          bg={
-            computedColorScheme === "light"
-              ? darken(colors.blue[8], 0.15)
-              : "var(--mantine-color-dark-7)"
-          }
-        >
-          <Group>
-            <Avatar
-              src={user.avatar}
-              radius="xl"
-              color={computedColorScheme === "light" ? "white" : "blue"}
-              alt={user.name}
-            >
-              {getInitials(user.name)}
-            </Avatar>
+  className={classes.user}
+  style={{
+    backgroundColor:
+      computedColorScheme === "light" ? "#EDF1EF" : "#2C4234",
+    color: computedColorScheme === "light" ? "#094509" : "#ffffff",
+  }}
+>
+  <Group>
+    <Avatar
+      src={user.avatar}
+      radius="xl"
+      color={computedColorScheme === "light" ? "green" : "blue"}
+      alt={user.name}
+    >
+      {getInitials(user.name)}
+    </Avatar>
 
-            <div style={{ flex: 1 }}>
-              <Text size="sm" fw={500}>
-                {user.name}
-              </Text>
+    <div style={{ flex: 1 }}>
+      <Text
+        size="sm"
+        fw={500}
+        c={computedColorScheme === "light" ? "#094509" : "#ffffff"}
+      >
+        {user.name}
+      </Text>
 
-              <Text c={computedColorScheme === "light" ? "blue.4" : "dimmed"} size="xs">
-                {user.job_title}
-              </Text>
-            </div>
+      <Text
+        size="xs"
+        c={computedColorScheme === "light" ? "#5F9164" : "#E5FF70"}
+      >
+        {user.job_title}
+      </Text>
+    </div>
 
-            <IconChevronRight style={{ width: rem(14), height: rem(14) }} stroke={1.5} />
-          </Group>
-        </UnstyledButton>
+    <IconChevronRight
+      style={{ width: rem(14), height: rem(14) }}
+      stroke={1.5}
+      color={computedColorScheme === "light" ? "#094509" : "#ffffff"}
+    />
+  </Group>
+</UnstyledButton>
       </Menu.Target>
 
       <Menu.Dropdown>

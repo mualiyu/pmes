@@ -88,7 +88,7 @@ const CompanyEdit = () => {
               <FileInput
                 label='Logo'
                 placeholder='Choose image'
-                accept='image/png,image/jpeg'
+                
                 onChange={image => updateValue('logo', image)}
                 clearable
                 error={form.errors.logo}
@@ -163,7 +163,7 @@ const CompanyEdit = () => {
             />
           </Fieldset>
 
-          <Fieldset
+          {/* <Fieldset
             legend='Details'
             mt='xl'
           >
@@ -249,7 +249,7 @@ const CompanyEdit = () => {
                 disabled={!can('edit owner company')}
               />
             </Group>
-          </Fieldset>
+          </Fieldset> */}
 
           <Fieldset
             legend='Contact'
