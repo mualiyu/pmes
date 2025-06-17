@@ -70,6 +70,13 @@ const ClientCompanyCreate = () => {
 
       <ContainerBox maw={600}>
         <form onSubmit={submit}>
+
+          <TextInput
+            label='Code'
+            description='E.g. CNII'
+           
+          />
+          
           <TextInput
             label='Code'
             placeholder='E.g. CNII'

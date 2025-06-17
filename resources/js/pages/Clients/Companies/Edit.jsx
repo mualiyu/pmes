@@ -53,7 +53,7 @@ const ClientCompanyEdit = () => {
           onClick={() => redirectTo('clients.companies.index')}
           fz={14}
         >
-          Companies
+          Entities
         </Anchor>
         <div>Edit</div>
       </Breadcrumbs>
@@ -72,6 +72,12 @@ const ClientCompanyEdit = () => {
 
       <ContainerBox maw={600}>
         <form onSubmit={submit}>
+
+          <TextInput
+            label='Code'
+            description='E.g. CNII'
+           
+          />
           <TextInput
             label='Code'
             placeholder='E.g. CNII'
