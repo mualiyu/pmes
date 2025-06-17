@@ -60,4 +60,16 @@ class DashboardController extends Controller
                 ->get(),
         ]);
     }
+
+    public function ganttChart(): Response
+    {
+        $projectIds = PermissionService::projectsThatUserCanAccess(auth()->user())->pluck('id');
+
+        return Inertia::render('Dashboard/GanttChart', [
+            'projects' => Project::whereIn('id', $projectIds)
+                ->with(['clientCompany:id,name'])
+                ->orderBy('name', 'asc')
+                ->get(['id', 'name']),
+        ]);
+    }
 }
