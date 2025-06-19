@@ -72,4 +72,16 @@ class DashboardController extends Controller
                 ->get(['id', 'name']),
         ]);
     }
+
+    public function ceoDashboard(): Response
+    {
+        $projectIds = PermissionService::projectsThatUserCanAccess(auth()->user())->pluck('id');
+
+        return Inertia::render('CeoDashboard/index', [
+            'projects' => Project::whereIn('id', $projectIds)
+                ->with(['clientCompany:id,name'])
+                ->orderBy('name', 'asc')
+                ->get(['id', 'name']),
+        ]);
+    }
 }
