@@ -75,11 +75,6 @@ const ClientCompanyEdit = () => {
 
           <TextInput
             label='Code'
-            description='E.g. CNII'
-           
-          />
-          <TextInput
-            label='Code'
             placeholder='E.g. CNII'
             required
             value={form.data.code}
