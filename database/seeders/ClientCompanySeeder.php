@@ -13,11 +13,16 @@ class ClientCompanySeeder extends Seeder
      */
     public function run(): void
     {
+        // Get all users with the 'client' role
         User::role('client')
             ->get()
             ->each(function (User $client) {
-                ClientCompany::factory()->create()->clients()->attach($client);
-            });
+                // Create a new ClientCompany
+                $company = ClientCompany::factory()->create();
 
+                // Assign the company to the client via foreign key
+                $client->client_company_id = $company->id;
+                $client->save();
+            });
     }
 }
