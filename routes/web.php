@@ -28,8 +28,8 @@ Route::redirect('/', 'dashboard');
 Route::group(['middleware' => ['auth:sanctum']], function () {
     // Dashboard
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/gantt-chart', [DashboardController::class, 'ganttChart'])->name('gantt-chart');
-    Route::get('/ceo-dashboard', [DashboardController::class, 'ceoDashboard'])->name('ceo-dashboard');
+    // Route::get('/gantt-chart', [DashboardController::class, 'ganttChart'])->name('gantt-chart');
+    // Route::get('/ceo-dashboard', [DashboardController::class, 'ceoDashboard'])->name('ceo-dashboard');
 
     // Projects
     Route::resource('projects', ProjectController::class)->except(['show']);

@@ -1,6 +1,7 @@
 import ActionButton from "@/components/ActionButton";
 import BackButton from "@/components/BackButton";
 import useForm from "@/hooks/useForm";
+import useDirectorates from '@/hooks/useDirectorates';
 import useRoles from "@/hooks/useRoles";
 import ContainerBox from "@/layouts/ContainerBox";
 import Layout from "@/layouts/MainLayout";
@@ -15,6 +16,7 @@ import {
   Grid,
   Group,
   MultiSelect,
+  Select,
   NumberInput,
   PasswordInput,
   Text,
@@ -24,12 +26,14 @@ import {
 
 const UserCreate = () => {
   const { getDropdownValues } = useRoles();
+  const { getDropdownValues: getDirectorates } = useDirectorates();
 
   const [form, submit, updateValue] = useForm("post", route("users.store"), {
     avatar: null,
     job_title: "",
     name: "",
     phone: "",
+    client_company_id: "",
     rate: 0,
     email: "",
     password: "",
@@ -114,6 +118,18 @@ const UserCreate = () => {
             data={getDropdownValues({ except: ["client"] })}
             error={form.errors.roles}
           />
+
+           
+<Select
+  label="Directorate"
+  placeholder="Pick one"
+  required
+  mt="md"
+  data={getDirectorates()}
+  value={form.data.client_company_id}
+  onChange={(value) => updateValue("client_company_id", value)}
+  error={form.errors.client_company_id}
+/>
 
           {/* <Group grow mt="md">
             <TextInput

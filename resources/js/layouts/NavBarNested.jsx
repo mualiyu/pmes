@@ -30,13 +30,13 @@ export default function Sidebar() {
         active: route().current("dashboard"),
         visible: true,
       },
-      {
-        label: "NC's Dashboard",
-        icon: IconGauge,
-        link: route("ceo-dashboard"),
-        active: route().current("ceo-dashboard"),
-        visible: true,
-      },
+      // {
+      //   label: "NC's Dashboard",
+      //   icon: IconGauge,
+      //   link: route("ceo-dashboard"),
+      //   active: route().current("ceo-dashboard"),
+      //   visible: true,
+      // },
       {
         label: "Projects",
         icon: IconListDetails,

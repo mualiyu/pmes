@@ -33,7 +33,7 @@ class ClientCompanyResource extends JsonResource
             'vat' => $this->vat,
             'rate' => $this->rate,
             'currency' => $this->currency,
-            'clients' => $this->clients->map->only(['id', 'name']),
+            'users' => $this->users?->map->only(['id', 'name']) ?? [],
         ];
     }
 }

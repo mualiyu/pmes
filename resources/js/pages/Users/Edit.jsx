@@ -1,12 +1,13 @@
-import ActionButton from "@/components/ActionButton";
-import BackButton from "@/components/BackButton";
-import useForm from "@/hooks/useForm";
-import useRoles from "@/hooks/useRoles";
-import ContainerBox from "@/layouts/ContainerBox";
-import Layout from "@/layouts/MainLayout";
-import { redirectTo } from "@/utils/route";
-import { getInitials } from "@/utils/user";
-import { usePage } from "@inertiajs/react";
+import ActionButton from '@/components/ActionButton';
+import BackButton from '@/components/BackButton';
+import useForm from '@/hooks/useForm';
+import useRoles from '@/hooks/useRoles';
+import useDirectorates from '@/hooks/useDirectorates';
+import ContainerBox from '@/layouts/ContainerBox';
+import Layout from '@/layouts/MainLayout';
+import { redirectTo } from '@/utils/route';
+import { getInitials } from '@/utils/user';
+import { usePage } from '@inertiajs/react';
 import {
   Anchor,
   Avatar,
@@ -16,66 +17,91 @@ import {
   Grid,
   Group,
   MultiSelect,
+  Select,
   NumberInput,
   PasswordInput,
   Text,
   TextInput,
   Title,
-} from "@mantine/core";
+} from '@mantine/core';
 
 const UserEdit = () => {
   const { item } = usePage().props;
   const { getDropdownValues } = useRoles();
+  const { getDropdownValues: getDirectorates } = useDirectorates();
 
-  const [form, submit, updateValue] = useForm("post", route("users.update", item.id), {
-    _method: "put",
+  const directorates = getDirectorates();
+
+
+  const currentDirectorate = directorates.find(dir => Number(dir.value) === item.client_company_id)?.label;
+ 
+
+  const [form, submit, updateValue] = useForm('post', route('users.update', item.id), {
+    _method: 'put',
     avatar: null,
     job_title: item.job_title,
     name: item.name,
-    phone: item.phone || "",
+    phone: item.phone || '',
+    client_company_id: item.client_company_id,
     rate: item.rate / 100,
     email: item.email,
-    password: "",
-    password_confirmation: "",
+    password: '',
+    password_confirmation: '',
     roles: item.roles,
   });
 
   return (
     <>
-      <Breadcrumbs fz={14} mb={30}>
-        <Anchor href="#" onClick={() => redirectTo("users.index")} fz={14}>
+      <Breadcrumbs
+        fz={14}
+        mb={30}
+      >
+        <Anchor
+          href='#'
+          onClick={() => redirectTo('users.index')}
+          fz={14}
+        >
           Users
         </Anchor>
         <div>Edit</div>
       </Breadcrumbs>
 
-      <Grid justify="space-between" align="flex-end" gutter="xl" mb="lg">
-        <Grid.Col span="auto">
+      <Grid
+        justify='space-between'
+        align='flex-end'
+        gutter='xl'
+        mb='lg'
+      >
+        <Grid.Col span='auto'>
           <Title order={1}>Edit user</Title>
         </Grid.Col>
-        <Grid.Col span="content"></Grid.Col>
+        <Grid.Col span='content'></Grid.Col>
       </Grid>
 
       <ContainerBox maw={600}>
-        <form onSubmit={(e) => submit(e, { forceFormData: true })}>
-          <Grid justify="flex-start" align="flex-start" gutter="lg">
-            <Grid.Col span="content">
+        <form onSubmit={e => submit(e, { forceFormData: true })}>
+          <Grid
+            justify='flex-start'
+            align='flex-start'
+            gutter='lg'
+          >
+            <Grid.Col span='content'>
               <Avatar
                 src={
                   form.data.avatar === null ? item.avatar : URL.createObjectURL(form.data.avatar)
                 }
                 size={120}
-                color="#537D5D"
+                color='#537D5D'
               >
                 {getInitials(form.data.name)}
               </Avatar>
             </Grid.Col>
-            <Grid.Col span="auto">
+            <Grid.Col span='auto'>
               <FileInput
-                label="Profile image"
-                placeholder="Choose image"
-                accept="image/png,image/jpeg"
-                onChange={(image) => updateValue("avatar", image)}
+                label='Profile image'
+                placeholder='Choose image'
+                accept='image/png,image/jpeg'
+                onChange={image => updateValue('avatar', image)}
                 clearable
                 error={form.errors.avatar}
               />
@@ -90,34 +116,44 @@ const UserEdit = () => {
           </Grid>
 
           <TextInput
-            label="Name"
-            placeholder="User full name"
+            label='Name'
+            placeholder='User full name'
             required
-            mt="md"
+            mt='md'
             value={form.data.name}
-            onChange={(e) => updateValue("name", e.target.value)}
+            onChange={e => updateValue('name', e.target.value)}
             error={form.errors.name}
           />
 
           <TextInput
-            label="Job title"
-            placeholder="e.g. Frontend Developer"
+            label='Job title'
+            placeholder='e.g. Frontend Developer'
             required
-            mt="md"
+            mt='md'
             value={form.data.job_title}
-            onChange={(e) => updateValue("job_title", e.target.value)}
+            onChange={e => updateValue('job_title', e.target.value)}
             error={form.errors.job_title}
           />
 
           <MultiSelect
-            label="Roles"
-            placeholder="Select role"
+            label='Roles'
+            placeholder='Select role'
             required
-            mt="md"
+            mt='md'
             value={form.data.roles}
-            onChange={(values) => updateValue("roles", values)}
-            data={getDropdownValues({ except: ["client"] })}
+            onChange={values => updateValue('roles', values)}
+            data={getDropdownValues({ except: ['client'] })}
             error={form.errors.roles}
+          />
+          <Select
+            label='Directorate'
+            placeholder={currentDirectorate || 'Select directorate'}
+            required
+            mt='md'
+            data={getDirectorates()}
+            value={form.data.client_company_id}
+            onChange={value => updateValue('client_company_id', value)}
+            error={form.errors.client_company_id}
           />
 
           {/* <Group grow mt="md">
@@ -142,38 +178,46 @@ const UserEdit = () => {
             />
           </Group> */}
 
-          <Divider mt="xl" mb="md" label="Login credentials" labelPosition="center" />
+          <Divider
+            mt='xl'
+            mb='md'
+            label='Login credentials'
+            labelPosition='center'
+          />
 
           <TextInput
-            label="Email"
-            placeholder="User email"
+            label='Email'
+            placeholder='User email'
             required
             value={form.data.email}
-            onChange={(e) => updateValue("email", e.target.value)}
-            onBlur={() => form.validate("email")}
+            onChange={e => updateValue('email', e.target.value)}
+            onBlur={() => form.validate('email')}
             error={form.errors.email}
           />
 
           <PasswordInput
-            label="Password"
-            placeholder="User password"
-            mt="md"
+            label='Password'
+            placeholder='User password'
+            mt='md'
             value={form.data.password}
-            onChange={(e) => updateValue("password", e.target.value)}
+            onChange={e => updateValue('password', e.target.value)}
             error={form.errors.password}
           />
 
           <PasswordInput
-            label="Confirm password"
-            placeholder="Confirm password"
-            mt="md"
+            label='Confirm password'
+            placeholder='Confirm password'
+            mt='md'
             value={form.data.password_confirmation}
-            onChange={(e) => updateValue("password_confirmation", e.target.value)}
+            onChange={e => updateValue('password_confirmation', e.target.value)}
             error={form.errors.password_confirmation}
           />
 
-          <Group justify="space-between" mt="xl">
-            <BackButton route="users.index" />
+          <Group
+            justify='space-between'
+            mt='xl'
+          >
+            <BackButton route='users.index' />
             <ActionButton loading={form.processing}>Update</ActionButton>
           </Group>
         </form>
@@ -182,6 +226,6 @@ const UserEdit = () => {
   );
 };
 
-UserEdit.layout = (page) => <Layout title="Edit user">{page}</Layout>;
+UserEdit.layout = page => <Layout title='Edit user'>{page}</Layout>;
 
 export default UserEdit;

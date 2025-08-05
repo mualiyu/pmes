@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\ClientCompany;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -23,18 +24,27 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        // 🔧 Ensure we have at least one client company to associate users with
+        $clientCompany = ClientCompany::first() ?? ClientCompany::factory()->create();
+
+        // 🧑‍💻 Create one user for each role (except client)
         $rolesExceptClient = collect(RoleSeeder::$roles)
             ->filter(fn ($i) => $i !== 'client')
             ->toArray();
 
         foreach ($rolesExceptClient as $role) {
             User::factory()
-                ->create(['email' => "$role@mail.com", 'job_title' => $this->getJobTitle($role)])
+                ->create([
+                    'email' => "$role@mail.com",
+                    'job_title' => $this->getJobTitle($role),
+                    'client_company_id' => $clientCompany->id, // ✅ Important!
+                ])
                 ->assignRole($role);
         }
 
+        // 👥 Create 20 more users and assign them roles based on job title
         User::factory(20)
-            ->create()
+            ->create(['client_company_id' => $clientCompany->id]) // ✅ Set company for each
             ->each(fn (User $user) => $user->assignRole($this->jobTitleToRole[$user->job_title]));
     }
 
@@ -45,5 +55,7 @@ class UserSeeder extends Seeder
                 return $title;
             }
         }
+
+        return 'Frontend Developer'; // fallback just in case
     }
 }

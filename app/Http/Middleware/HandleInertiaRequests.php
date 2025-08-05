@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Models\Role;
 use App\Models\User;
+use App\Models\ClientCompany;
 use App\Services\NotificationService;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
@@ -58,7 +59,11 @@ class HandleInertiaRequests extends Middleware
                 'notifications' => NotificationService::getLatest(6),
             ],
             'shared' => [
-                'roles' => fn () => Role::orderBy('name')->get(['id', 'name'])->toArray(),
+                'roles' => fn() => Role::orderBy('name')->get(['id', 'name'])->toArray(),
+                'directorates' => fn() => ClientCompany::orderBy('name')
+                    ->get(['id', 'name'])
+                    ->map(fn($i) => ['value' => (string) $i->id, 'label' => $i->name])
+                    ->toArray(),
             ],
             'flash' => session()->get('flash'),
             'version' => config('app.version'),

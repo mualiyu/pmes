@@ -7,6 +7,7 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
@@ -28,6 +29,7 @@ class User extends Authenticatable implements AuditableContract, CanResetPasswor
         'email',
         'password',
         'job_title',
+        'client_company_id',
         'avatar',
         'phone',
         'rate',
@@ -70,10 +72,10 @@ class User extends Authenticatable implements AuditableContract, CanResetPasswor
     {
         return ! $this->isAdmin();
     }
-
-    public function clientCompanies(): BelongsToMany
+// User belongs to a ClientCompany
+    public function clientCompanies(): BelongsTo
     {
-        return $this->belongsToMany(ClientCompany::class, 'client_company', 'client_id', 'client_company_id');
+        return $this->belongsTo(ClientCompany::class);
     }
 
     /**

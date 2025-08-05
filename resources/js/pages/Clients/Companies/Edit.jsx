@@ -39,7 +39,7 @@ const ClientCompanyEdit = () => {
     business_id: item.business_id || '',
     tax_id: item.tax_id || '',
     vat: item.vat || '',
-    clients: item.clients.map(i => i.id.toString()),
+    // clients: item.clients.map(i => i.id.toString()),
   });
 
   return (

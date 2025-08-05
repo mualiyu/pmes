@@ -91,4 +91,16 @@ class ClientCompanyController extends Controller
 
         return redirect()->back()->success('Company restored', 'The restoring of the company was completed successfully.');
     }
+
+    // Add this to ClientCompanyController.php
+
+public function dropdown()
+{
+    return response()->json(
+        ClientCompany::select('id', 'name as label')
+            ->orderBy('name')
+            ->get()
+    );
+}
+
 }
