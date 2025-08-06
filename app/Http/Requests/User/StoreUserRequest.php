@@ -28,6 +28,7 @@ class StoreUserRequest extends FormRequest
             'name' => 'required|string',
             'phone' => 'string|nullable',
             'rate' => 'numeric|min:0',
+             'client_company_id' => 'required|exists:client_companies,id',
             'email' => ['required', 'email:rfc,dns', Rule::unique('users')],
             'password' => 'required|min:8|confirmed',
             'roles' => 'required|array|min:1',

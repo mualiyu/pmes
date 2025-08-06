@@ -61,15 +61,27 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function ganttChart(): Response
-    {
-        $projectIds = PermissionService::projectsThatUserCanAccess(auth()->user())->pluck('id');
+    // public function ganttChart(): Response
+    // {
+    //     $projectIds = PermissionService::projectsThatUserCanAccess(auth()->user())->pluck('id');
 
-        return Inertia::render('Dashboard/GanttChart', [
-            'projects' => Project::whereIn('id', $projectIds)
-                ->with(['clientCompany:id,name'])
-                ->orderBy('name', 'asc')
-                ->get(['id', 'name']),
-        ]);
-    }
+    //     return Inertia::render('Dashboard/GanttChart', [
+    //         'projects' => Project::whereIn('id', $projectIds)
+    //             ->with(['clientCompany:id,name'])
+    //             ->orderBy('name', 'asc')
+    //             ->get(['id', 'name']),
+    //     ]);
+    // }
+
+    // public function ceoDashboard(): Response
+    // {
+    //     $projectIds = PermissionService::projectsThatUserCanAccess(auth()->user())->pluck('id');
+
+    //     return Inertia::render('CeoDashboard/index', [
+    //         'projects' => Project::whereIn('id', $projectIds)
+    //             ->with(['clientCompany:id,name'])
+    //             ->orderBy('name', 'asc')
+    //             ->get(['id', 'name']),
+    //     ]);
+    // }
 }

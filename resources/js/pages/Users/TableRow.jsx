@@ -1,10 +1,16 @@
 import RoleBadge from "@/components/RoleBadge";
 import TableRowActions from "@/components/TableRowActions";
+import useDirectorates from '@/hooks/useDirectorates';
 import { money } from "@/utils/currency";
 import { getInitials } from "@/utils/user";
 import { Avatar, Flex, Group, Table, Text } from "@mantine/core";
 
 export default function TableRow({ item }) {
+
+  const { getDropdownValues: getDirectorates } = useDirectorates();
+
+   const directorates = getDirectorates();
+   
   return (
     <Table.Tr key={item.id}>
       <Table.Td>
@@ -40,6 +46,20 @@ export default function TableRow({ item }) {
           Email
         </Text>
       </Table.Td>
+
+      
+
+      <Table.Td>
+        {(()=>{
+          const currentDirectorate = directorates.find(
+      dir => Number(dir.value) === item.client_company_id
+    )?.label;
+     return <Text fz="sm">{currentDirectorate}</Text>;
+        })()}
+        
+
+      </Table.Td>
+
       {/* {can("view user rate") && (
         <Table.Td>
           <Text fz="sm">{money(item.rate)} / hr</Text>

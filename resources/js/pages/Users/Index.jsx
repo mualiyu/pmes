@@ -18,6 +18,7 @@ const UsersIndex = () => {
     { label: "User", column: "name" },
     { label: "Role", sortable: false },
     { label: "Email", column: "email" },
+    { label: "Directorate", column: "Directorate" },
     // { label: "Rate", column: "rate", visible: can("view user rate") },
     {
       label: "Actions",

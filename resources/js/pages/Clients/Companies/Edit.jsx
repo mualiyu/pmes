@@ -39,7 +39,7 @@ const ClientCompanyEdit = () => {
     business_id: item.business_id || '',
     tax_id: item.tax_id || '',
     vat: item.vat || '',
-    clients: item.clients.map(i => i.id.toString()),
+    // clients: item.clients.map(i => i.id.toString()),
   });
 
   return (
@@ -73,11 +73,6 @@ const ClientCompanyEdit = () => {
       <ContainerBox maw={600}>
         <form onSubmit={submit}>
 
-          <TextInput
-            label='Code'
-            description='E.g. CNII'
-           
-          />
           <TextInput
             label='Code'
             placeholder='E.g. CNII'
