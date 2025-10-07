@@ -94,13 +94,12 @@ class ClientCompanyController extends Controller
 
     // Add this to ClientCompanyController.php
 
-public function dropdown()
-{
-    return response()->json(
-        ClientCompany::select('id', 'name as label')
-            ->orderBy('name')
-            ->get()
-    );
-}
-
+    public function dropdown()
+    {
+        return response()->json(
+            ClientCompany::select('id', 'name as label')
+                ->orderBy('name')
+                ->get()
+        );
+    }
 }

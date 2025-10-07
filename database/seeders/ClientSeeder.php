@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\ClientCompany;
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use App\Models\ClientCompany;
 
 class ClientSeeder extends Seeder
 {
@@ -14,7 +14,7 @@ class ClientSeeder extends Seeder
         $clientCompanyId = ClientCompany::inRandomOrder()->first()?->id;
 
         // If no client company exists, create one
-        if (!$clientCompanyId) {
+        if (! $clientCompanyId) {
             $clientCompanyId = ClientCompany::factory()->create()->id;
         }
 

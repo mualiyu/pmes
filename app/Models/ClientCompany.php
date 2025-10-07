@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Lacodix\LaravelModelFilter\Traits\IsSearchable;
 use Lacodix\LaravelModelFilter\Traits\IsSortable;
@@ -18,7 +17,7 @@ class ClientCompany extends Model implements AuditableContract
     use Archivable, Auditable, HasFactory, IsSearchable, IsSortable;
 
     protected $fillable = [
-        'code', //added this code after creating migration to add code field in table
+        'code', // added this code after creating migration to add code field in table
         'name',
         'address',
         'postal_code',
@@ -44,11 +43,12 @@ class ClientCompany extends Model implements AuditableContract
         'name' => 'asc',
         'email',
     ];
-// client company has many users
+
+    // client company has many users
     public function clients(): HasMany
-{
-    return $this->hasMany(User::class);
-}
+    {
+        return $this->hasMany(User::class);
+    }
 
     public function country(): BelongsTo
     {
