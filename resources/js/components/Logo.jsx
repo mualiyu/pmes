@@ -6,17 +6,31 @@ export default function Logo(props) {
 
   return (
     <Group wrap="nowrap" {...props}>
+      {/* <Center 
+        style={{
+          width: rem(40),
+          height: rem(40),
+          borderRadius: rem(8),
+          backgroundColor: computedColorScheme === 'dark' ? '#2C2E33' : '#5F9164',
+        }}
+      >
+        <IconChartArcs 
+          style={{ 
+            width: rem(24), 
+            height: rem(24),
+            color: '#fff'
+          }} 
+        />
+      </Center> */}
 
-        <img src="White-NCCC-Logo.png" style={{width:"59%", height:"auto", borderRadius:"4px"}} />
-
-     <Text
-  style={{
-    color: computedColorScheme === 'dark' ? '#F0F0F0' : '#094509',
-  }}
-  fz={25}
-  fw={600}
->
-        PMT
+      <Text
+        style={{
+          color: computedColorScheme === 'dark' ? '#F0F0F0' : '#2c3999',
+        }}
+        fz={22}
+        fw={700}
+      >
+        M&E
       </Text>
     </Group>
   );

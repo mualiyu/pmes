@@ -1,30 +1,29 @@
 .link {
-  text-decoration: none;
-  color: light-dark(#094509, #D9F5E2);
-  transition: color 0.2s ease;
+  cursor: pointer;
+  color: light-dark(#1a215c, #c4c9ed);
+}
 
-  @mixin hover {
-    color: light-dark(#5F9164, #C7F2D1);
-  }
+.title:hover {
+    color: light-dark(#2c3999, #a3abe3);
+}
+
+.card:hover {
+  border-color: light-dark(#2c3999, #232d7a);
+  transform: translateY(-2px);
 }
 
 .card {
-  transition: 0.3s ease all;
-  background-color: light-dark(#ffffff, #1E1E1E); 
-  border: 1px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-4));
-  border-radius: var(--mantine-radius-md);
-  padding: var(--mantine-spacing-md);
-
-  @mixin hover {
-    border-color: light-dark(#5F9164, #C7F2D1);
-
-    .title {
-      color: light-dark(#5F9164, #D9F5E2);
-    }
+  transition: all 0.2s ease;
+  border-width: 2px;
+  min-height: 200px;
+  border-color: light-dark(#2c3999, #a3abe3);
+  cursor: pointer;
+  
+  &:hover .title {
+      color: light-dark(#2c3999, #c4c9ed);
   }
 }
 
-.title {
-  color: light-dark(#094509, #D9F5E2); 
-  transition: 0.2s ease all;
+.ignoreLink {
+  color: light-dark(#1a215c, #c4c9ed);
 }

@@ -41,7 +41,7 @@ export default function TableRowActions({
     <Group gap={0} justify="flex-end" wrap="nowrap">
       {children}
       {can(editPermission) && !route().params.archived && (
-        <ActionIcon variant="subtle" color="#094509" onClick={() => redirectTo(editRoute, item.id)}>
+        <ActionIcon variant="subtle" color="#2c3999" onClick={() => redirectTo(editRoute, item.id)}>
           <IconPencil style={{ width: rem(16), height: rem(16) }} stroke={1.5} />
         </ActionIcon>
       )}

@@ -51,7 +51,7 @@ const ClientCompanyCreate = () => {
           onClick={() => redirectTo('clients.companies.index')}
           fz={14}
         >
-          Entities
+          Organizations
         </Anchor>
         <div>Create</div>
       </Breadcrumbs>
@@ -63,7 +63,7 @@ const ClientCompanyCreate = () => {
         mb='lg'
       >
         <Grid.Col span='auto'>
-          <Title order={1}>Create Entity</Title>
+          <Title order={1}>Create Organization</Title>
         </Grid.Col>
         <Grid.Col span='content'></Grid.Col>
       </Grid>
@@ -72,16 +72,16 @@ const ClientCompanyCreate = () => {
         <form onSubmit={submit}>
           
           <TextInput
-            label='Code'
-            placeholder='E.g. CNII'
+            label='Organization Code'
+            placeholder='E.g. ORG001'
             required
             value={form.data.code}
             onChange={e => updateValue('code', e.target.value)}
             error={form.errors.code}
           />
           <TextInput
-            label='Name'
-            placeholder='Entity Name'
+            label='Organization Name'
+            placeholder='Enter organization name'
             required
             value={form.data.name}
             onChange={e => updateValue('name', e.target.value)}
@@ -257,7 +257,7 @@ const ClientCompanyCreate = () => {
             mt='xl'
           >
             <BackButton route='clients.companies.index' />
-            <ActionButton loading={form.processing}>Create</ActionButton>
+            <ActionButton loading={form.processing}>Create Organization</ActionButton>
           </Group>
         </form>
       </ContainerBox>
@@ -265,6 +265,6 @@ const ClientCompanyCreate = () => {
   );
 };
 
-ClientCompanyCreate.layout = page => <Layout title='Create company'>{page}</Layout>;
+ClientCompanyCreate.layout = page => <Layout title='Create Organization'>{page}</Layout>;
 
 export default ClientCompanyCreate;

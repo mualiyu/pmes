@@ -52,13 +52,13 @@ export default function Sidebar() {
         visible: can("view tasks") || can("view activities"),
         links: [
           {
-            label: "Tasks",
+            label: "Indicators",
             link: route("my-work.tasks.index"),
             active: route().current("my-work.tasks.*"),
             visible: can("view tasks"),
           },
           {
-            label: "Activity",
+            label: "Activity Log",
             link: route("my-work.activity.index"),
             active: route().current("my-work.activity.*"),
             visible: can("view activities"),
@@ -66,7 +66,7 @@ export default function Sidebar() {
         ],
       },
       {
-        label: "NCCC",
+        label: "Stakeholders",
         icon: IconBuildingSkyscraper,
         active: route().current("clients.*"),
         opened: route().current("clients.*"),
@@ -79,7 +79,7 @@ export default function Sidebar() {
           //   visible: can("view client users"),
           // },
           {
-            label: "Entities",
+            label: "Organizations",
             link: route("clients.companies.index"),
             active: route().current("clients.companies.*"),
             visible: can("view client companies"),
@@ -87,7 +87,7 @@ export default function Sidebar() {
         ],
       },
       {
-        label: "Users",
+        label: "Users & Roles",
         icon: IconUsers,
         link: route("users.index"),
         active: route().current("users.*"),
@@ -129,19 +129,19 @@ export default function Sidebar() {
         visible: can("view owner company") || can("view roles") || can("view labels"),
         links: [
           {
-            label: "Organisation",
+            label: "Organization",
             link: route("settings.company.edit"),
             active: route().current("settings.company.*"),
             visible: can("view owner company"),
           },
           {
-            label: "Roles",
+            label: "Roles & Permissions",
             link: route("settings.roles.index"),
             active: route().current("settings.roles.*"),
             visible: can("view roles"),
           },
           {
-            label: "Labels",
+            label: "Labels & Tags",
             link: route("settings.labels.index"),
             active: route().current("settings.labels.*"),
             visible: can("view labels"),

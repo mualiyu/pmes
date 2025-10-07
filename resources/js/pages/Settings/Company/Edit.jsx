@@ -52,7 +52,7 @@ const CompanyEdit = () => {
         mb={35}
       >
         <Grid.Col span='auto'>
-          <Title order={1}>My company</Title>
+          <Title order={1}>My Organization</Title>
         </Grid.Col>
         <Grid.Col span='content'></Grid.Col>
       </Grid>
@@ -80,7 +80,7 @@ const CompanyEdit = () => {
                   pt='lg'
                   opacity={0.6}
                 >
-                  Company logo
+                  Organization logo
                 </Box>
               )}
             </Grid.Col>
@@ -105,8 +105,8 @@ const CompanyEdit = () => {
           </Grid>
 
           <TextInput
-            label='Name'
-            placeholder='Company name'
+            label='Organization Name'
+            placeholder='Enter organization name'
             required
             mt='md'
             value={form.data.name}
@@ -300,6 +300,6 @@ const CompanyEdit = () => {
   );
 };
 
-CompanyEdit.layout = page => <Layout title='Edit user'>{page}</Layout>;
+CompanyEdit.layout = page => <Layout title='Edit Organization'>{page}</Layout>;
 
 export default CompanyEdit;

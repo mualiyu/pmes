@@ -14,18 +14,18 @@ import { Notifications } from "@mantine/notifications";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { createRoot } from "react-dom/client";
 
-// Updated primary color palette (based on #018F3C)
+// Updated primary color palette (based on #2c3999)
 const customPrimary = [
-  "#e3f9ec",
-  "#bdf0d1",
-  "#95e6b5",
-  "#6fdc9a",
-  "#48d27f",
-  "#22c963",
-  "#5F9164", // Primary brand green
-  "#017c35",
-  "#01692d",
-  "#015625",
+  "#e5e7f7",
+  "#c4c9ed",
+  "#a3abe3",
+  "#828dd9",
+  "#616fcf",
+  "#4051c5",
+  "#2c3999", // Primary brand blue
+  "#232d7a",
+  "#1a215c",
+  "#12163d",
 ];
 
 const theme = createTheme({
@@ -52,15 +52,15 @@ const theme = createTheme({
   },
   globalStyles: (theme) => ({
     body: {
-      backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[7] : "#EDF1EF",
-      color: theme.colorScheme === "dark" ? theme.colors.dark[0] : "#094509",
+      backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[7] : "#f5f6fa",
+      color: theme.colorScheme === "dark" ? theme.colors.dark[0] : "#1a1a1a",
     },
     a: {
-      color: theme.colorScheme === "dark" ? "#cbdff4" : "#0F172A",
+      color: theme.colorScheme === "dark" ? "#c4c9ed" : "#0F172A",
       textDecoration: "none",
       transition: "color 0.2s ease",
       "&:hover": {
-        color: theme.colorScheme === "dark" ? "#ffffff" : "#3d5f82",
+        color: theme.colorScheme === "dark" ? "#ffffff" : "#2c3999",
       },
       "&.active": {
         color: theme.colors.custom[6],

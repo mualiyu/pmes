@@ -8,7 +8,7 @@ export default forwardRef(function TaskGroupLabel(props, ref) {
     <Pill
       ref={ref}
       size="xs"
-      bg={computedColorScheme === "light" ? "#5F9164" : "#5F9164"}
+      bg={computedColorScheme === "light" ? "#2c3999" : "#2c3999"}
       fw={600}
       c="white"
       {...props}

@@ -91,7 +91,7 @@ const UserEdit = () => {
                   form.data.avatar === null ? item.avatar : URL.createObjectURL(form.data.avatar)
                 }
                 size={120}
-                color='#537D5D'
+                color='#2c3999'
               >
                 {getInitials(form.data.name)}
               </Avatar>

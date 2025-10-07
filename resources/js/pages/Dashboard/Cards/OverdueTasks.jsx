@@ -21,7 +21,7 @@ export default function OverdueTasks({ tasks }) {
   return (
     <Card bg="none">
       <Title order={3} ml={15}>
-        Overdue tasks
+        Overdue Indicators
       </Title>
 
       <Divider my={14} />
@@ -42,7 +42,7 @@ export default function OverdueTasks({ tasks }) {
                       {task.name}
                     </Text>
                     <Group>
-                      <Tooltip label="Task group" openDelay={500} withArrow>
+                      <Tooltip label="Status group" openDelay={500} withArrow>
                         <TaskGroupLabel>{task.task_group.name}</TaskGroupLabel>
                       </Tooltip>
                       <Text fz={11} c="dimmed">
@@ -62,7 +62,7 @@ export default function OverdueTasks({ tasks }) {
         </ScrollArea>
       ) : (
         <Center my={30}>
-          <EmptyWithIcon title="All done!" subtitle="You have no overdue tasks" icon={IconRocket} />
+          <EmptyWithIcon title="All done!" subtitle="You have no overdue indicators" icon={IconRocket} />
         </Center>
       )}
     </Card>

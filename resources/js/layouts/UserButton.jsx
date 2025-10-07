@@ -51,7 +51,7 @@ export default function UserButton() {
   style={{
     backgroundColor:
       computedColorScheme === "light" ? "#EDF1EF" : "#2C4234",
-    color: computedColorScheme === "light" ? "#094509" : "#ffffff",
+    color: computedColorScheme === "light" ? "#1a215c" : "#ffffff",
   }}
 >
   <Group>
@@ -68,14 +68,14 @@ export default function UserButton() {
       <Text
         size="sm"
         fw={500}
-        c={computedColorScheme === "light" ? "#094509" : "#ffffff"}
+        c={computedColorScheme === "light" ? "#1a215c" : "#ffffff"}
       >
         {user.name}
       </Text>
 
       <Text
         size="xs"
-        c={computedColorScheme === "light" ? "#5F9164" : "#E5FF70"}
+        c={computedColorScheme === "light" ? "#2c3999" : "#c4c9ed"}
       >
         {user.job_title}
       </Text>
@@ -84,7 +84,7 @@ export default function UserButton() {
     <IconChevronRight
       style={{ width: rem(14), height: rem(14) }}
       stroke={1.5}
-      color={computedColorScheme === "light" ? "#094509" : "#ffffff"}
+      color={computedColorScheme === "light" ? "#1a215c" : "#ffffff"}
     />
   </Group>
 </UnstyledButton>

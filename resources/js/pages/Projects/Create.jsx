@@ -88,7 +88,7 @@ const ProjectCreate = ({ dropdowns: { companies, users, currencies } }) => {
 
           <Textarea
             label='Description'
-            placeholder='Project description'
+            placeholder='Project description and objectives'
             mt='md'
             autosize
             minRows={4}
@@ -99,7 +99,7 @@ const ProjectCreate = ({ dropdowns: { companies, users, currencies } }) => {
 
           <Select
             label='Project Owner'
-            placeholder='Select company'
+            placeholder='Select organization'
             required
             mt='md'
             value={form.data.client_company_id}
@@ -109,7 +109,7 @@ const ProjectCreate = ({ dropdowns: { companies, users, currencies } }) => {
           />
 
           <MultiSelect
-            label='Memebers'
+            label='Members'
             placeholder='Select users'
             mt='md'
             searchable

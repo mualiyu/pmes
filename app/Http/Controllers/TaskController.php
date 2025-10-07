@@ -72,7 +72,7 @@ class TaskController extends Controller
 
         (new CreateTask)->create($project, $request->validated());
 
-        return redirect()->route('projects.tasks', $project)->success('Task added', 'A new task was successfully added.');
+        return redirect()->route('projects.tasks', $project)->success('Indicator added', 'A new indicator was successfully added.');
     }
 
     public function update(UpdateTaskRequest $request, Project $project, Task $task): JsonResponse
@@ -137,7 +137,7 @@ class TaskController extends Controller
         $task->archive();
         TaskDeleted::dispatch($task->id, $task->project_id);
 
-        return redirect()->back()->success('Task archived', 'The task was successfully archived.');
+        return redirect()->back()->success('Indicator archived', 'The indicator was successfully archived.');
     }
 
     public function restore(Project $project, int $taskId)
@@ -149,6 +149,6 @@ class TaskController extends Controller
         $task->unArchive();
         TaskRestored::dispatch($task);
 
-        return redirect()->back()->success('Task restored', 'The restoring of the Task was completed successfully.');
+        return redirect()->back()->success('Indicator restored', 'The restoring of the indicator was completed successfully.');
     }
 }

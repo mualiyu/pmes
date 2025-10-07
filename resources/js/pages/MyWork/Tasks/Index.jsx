@@ -21,11 +21,11 @@ const TasksIndex = () => {
     <>
       <Breadcrumbs fz={14} mb={30}>
         <div>My Work</div>
-        <div>Tasks</div>
+        <div>Indicators</div>
       </Breadcrumbs>
 
       <Title order={1} mb={20}>
-        Tasks assigned to you
+        Indicators assigned to you
       </Title>
 
       <Box maw={1000}>
@@ -75,7 +75,7 @@ const TasksIndex = () => {
           <Center mih={300}>
             <EmptyWithIcon
               title="All caught up!"
-              subtitle="No tasks assigned at the moment"
+              subtitle="No indicators assigned at the moment"
               icon={IconRocket}
             />
           </Center>
@@ -85,6 +85,6 @@ const TasksIndex = () => {
   );
 };
 
-TasksIndex.layout = (page) => <Layout title="My Tasks">{page}</Layout>;
+TasksIndex.layout = (page) => <Layout title="My Indicators">{page}</Layout>;
 
 export default TasksIndex;
