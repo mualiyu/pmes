@@ -46,9 +46,19 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
+            'permissions' => [
+                'file' => [
+                    'public' => 0644,
+                    'private' => 0600,
+                ],
+                'dir' => [
+                    'public' => 0755,  // This sets new directories to 755
+                    'private' => 0700,
+                ],
+            ],
         ],
 
         's3' => [
@@ -80,26 +90,5 @@ return [
         public_path('storage') => storage_path('app/public'),
     ],
 
-/*
-|--------------------------------------------------------------------------
-| Filesystem Permissions
-|--------------------------------------------------------------------------
-|
-| Here you may configure the default permissions for files and directories
-| that are created by the framework when using the local driver. You may
-| set permissions for both files and directories individually below.
-|
-*/
-
-'permissions' => [
-    'file' => [
-        'public' => 0644,
-        'private' => 0644,
-    ],
-    'dir' => [
-        'public' => 0755,
-        'private' => 0755,
-    ],
-],
 
 ];
