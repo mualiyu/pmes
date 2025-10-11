@@ -17,6 +17,9 @@ class PermissionSeeder extends Seeder
     {
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
+        // Clear existing role_has_permissions for re-seeding
+        DB::table('role_has_permissions')->truncate();
+
         $insertPermissions = fn ($role) => collect(PermissionService::$permissionsByRole[$role])
             ->flatten()
             ->map(function ($name) {
@@ -35,23 +38,29 @@ class PermissionSeeder extends Seeder
             ->toArray();
 
         $permissionIdsByRole = [
-            'admin' => $insertPermissions('admin'),
-            'manager' => $insertPermissions('manager'),
-            'developer' => $insertPermissions('developer'),
-            'designer' => $insertPermissions('designer'),
-            'client' => $insertPermissions('client'),
+            'system administrator' => $insertPermissions('system administrator'),
+            'program director' => $insertPermissions('program director'),
+            'me officer' => $insertPermissions('me officer'),
+            'project coordinator' => $insertPermissions('project coordinator'),
+            'data officer' => $insertPermissions('data officer'),
+            'finance officer' => $insertPermissions('finance officer'),
+            'directorate head' => $insertPermissions('directorate head'),
+            'vendor representative' => $insertPermissions('vendor representative'),
+            'stakeholder' => $insertPermissions('stakeholder'),
         ];
 
         foreach ($permissionIdsByRole as $role => $permissionIds) {
             $role = Role::whereName($role)->first();
 
-            DB::table('role_has_permissions')
-                ->insert(
-                    collect($permissionIds)->map(fn ($id) => [
-                        'role_id' => $role->id,
-                        'permission_id' => $id,
-                    ])->toArray()
-                );
+            if ($role) {
+                DB::table('role_has_permissions')
+                    ->insert(
+                        collect($permissionIds)->map(fn ($id) => [
+                            'role_id' => $role->id,
+                            'permission_id' => $id,
+                        ])->toArray()
+                    );
+            }
         }
 
         Artisan::call('cache:clear');

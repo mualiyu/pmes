@@ -44,7 +44,7 @@ class TaskController extends Controller
                         ->where('group_id', $group->id)
                         ->searchByQueryString()
                         ->filterByQueryString()
-                        ->when($request->user()->hasRole('client'), fn ($query) => $query->where('hidden_from_clients', false))
+                        ->when($request->user()->hasRole('stakeholder'), fn ($query) => $query->where('hidden_from_clients', false))
                         ->when($request->has('archived'), fn ($query) => $query->onlyArchived())
                         ->when(! $request->has('status'), fn ($query) => $query->whereNull('completed_at'))
                         ->withDefault()

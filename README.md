@@ -1,11 +1,11 @@
-# M&E Platform - Monitoring & Evaluation System
+# PMES - Project Monitoring & Evaluation System
 
-A comprehensive Monitoring & Evaluation (M&E) system built with Laravel and React, designed for organizations, NGOs, and government agencies to efficiently track programs, manage indicators, collect data, and generate reports.
+A comprehensive Project Monitoring & Evaluation (M&E) system built with Laravel and React for the **National Agency for Science and Engineering Infrastructure (NASENI)** to efficiently track programs, manage indicators, collect data, and generate reports.
 
 ## Features
 
-- **User Management**: Role-based access control (Administrator, Program Manager, M&E Officer, Data Collector, etc.) with customizable permissions
-- **Stakeholder Management**: Manage implementing organizations and partner agencies
+- **User Management**: Role-based access control with 9 predefined roles (System Administrator, Program Director, M&E Officer, Project Coordinator, Data Officer, Finance Officer, Directorate Head, Vendor Representative, Stakeholder)
+- **Organization Management**: Manage vendors, directorates, and general organizations
 - **Program Management**: Create and manage M&E programs with team member access control
 - **Indicator Tracking**: Define indicators with status groups (e.g., Pending, In Progress, Validated, Completed)
 - **Indicator Details**: Each indicator can have:
@@ -110,12 +110,19 @@ php artisan storage:link
 npm run build
 ```
 
-### Default Admin Account
+### Default User Accounts
 
-After running migrations with seed:
+After running migrations with demo data seed, you'll have 9 user accounts (one for each role):
 
-- **Email**: `admin@mail.com`
-- **Password**: `password`
+- **System Administrator**: `admin@naseni.gov.ng` / `password`
+- **Program Director**: `director@naseni.gov.ng` / `password`
+- **M&E Officer**: `me@naseni.gov.ng` / `password`
+- **Project Coordinator**: `coordinator@naseni.gov.ng` / `password`
+- **Data Officer**: `data@naseni.gov.ng` / `password`
+- **Finance Officer**: `finance@naseni.gov.ng` / `password`
+- **Directorate Head**: `directorate@naseni.gov.ng` / `password`
+- **Vendor Representative**: `vendor@naseni.gov.ng` / `password`
+- **Stakeholder**: `stakeholder@naseni.gov.ng` / `password`
 
 > **Important**: Change these credentials immediately in production!
 

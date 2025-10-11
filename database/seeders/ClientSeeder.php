@@ -20,10 +20,10 @@ class ClientSeeder extends Seeder
 
         User::factory(5)
             ->create([
-                'job_title' => 'Client',
+                'job_title' => 'External Stakeholder',
                 'client_company_id' => $clientCompanyId,
             ])
             ->each
-            ->assignRole('client');
+            ->assignRole('stakeholder');
     }
 }

@@ -13,11 +13,18 @@ class LabelSeeder extends Seeder
     public function run(): void
     {
         Label::insert([
-            ['name' => 'Confirmed', 'color' => '#37B24D'],
-            ['name' => 'Estimate', 'color' => '#AE3EC9'],
-            ['name' => 'Blocked', 'color' => '#F03E3E'],
-            ['name' => 'Bug', 'color' => '#D6336C'],
-            ['name' => 'Rework', 'color' => '#F76707'],
+            ['name' => 'High Priority', 'color' => '#F03E3E'],
+            ['name' => 'Medium Priority', 'color' => '#F76707'],
+            ['name' => 'Low Priority', 'color' => '#37B24D'],
+            ['name' => 'Requires Approval', 'color' => '#AE3EC9'],
+            ['name' => 'Data Collection', 'color' => '#1971C2'],
+            ['name' => 'Field Work', 'color' => '#0CA678'],
+            ['name' => 'Documentation', 'color' => '#868E96'],
+            ['name' => 'Stakeholder Engagement', 'color' => '#E64980'],
+            ['name' => 'Technical', 'color' => '#7048E8'],
+            ['name' => 'Financial', 'color' => '#F59F00'],
+            ['name' => 'Reporting', 'color' => '#20C997'],
+            ['name' => 'Training', 'color' => '#15AABF'],
         ]);
     }
 }

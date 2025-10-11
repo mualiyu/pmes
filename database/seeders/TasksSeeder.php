@@ -16,7 +16,7 @@ class TasksSeeder extends Seeder
     public function run(): void
     {
         $projects = Project::with(['taskGroups'])->get();
-        $admin = User::role('admin')->first();
+        $admin = User::role('system administrator')->first();
 
         foreach ($projects as $project) {
             $number = 1;

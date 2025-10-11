@@ -14,34 +14,27 @@ class ProductionSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            OwnerCompanySeeder::class,
+            LabelSeeder::class,
+        ]);
+
         User::create([
-            'email' => config('auth.admin.email'),
-            'name' => config('auth.admin.name'),
+            'email' => config('auth.admin.email', 'admin@naseni.gov.ng'),
+            'name' => config('auth.admin.name', 'System Administrator'),
             'phone' => '',
             'rate' => 0,
-            'job_title' => 'Owner',
+            'job_title' => 'System Administrator',
             'avatar' => null,
-            'password' => bcrypt(config('auth.admin.password')),
+            'password' => bcrypt(config('auth.admin.password', 'password')),
             'remember_token' => null,
-        ])->assignRole(Role::firstWhere('name', 'admin'));
+        ])->assignRole(Role::firstWhere('name', 'system administrator'));
 
-        OwnerCompany::create([
-            'name' => '',
-            'logo' => null,
-            'address' => '',
-            'postal_code' => '',
-            'city' => '',
-            'country_id' => null,
-            'currency_id' => 97,
-            'phone' => '',
-            'web' => '',
-            'tax' => 0,
-            'email' => '',
-            'iban' => '',
-            'swift' => '',
-            'business_id' => '',
-            'tax_id' => '',
-            'vat' => '',
-        ]);
+        $this->command->info('✅ Production setup completed!');
+        $this->command->newLine();
+        $this->command->warn('⚠️  IMPORTANT: Change the default admin credentials immediately!');
+        $this->command->info('📧 Default Login:');
+        $this->command->info('   Email: ' . config('auth.admin.email', 'admin@naseni.gov.ng'));
+        $this->command->info('   Password: ' . config('auth.admin.password', 'password'));
     }
 }

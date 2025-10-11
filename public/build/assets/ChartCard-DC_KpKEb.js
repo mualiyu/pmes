@@ -1,0 +1,1 @@
+import{j as r}from"./app-CQeDVQuS.js";import{C as i}from"./Card-DwGgF3HL.js";import{T as e}from"./Text-C7Ogcti-.js";const h=({title:s,children:t,height:d=300})=>r.jsxs(i,{shadow:"sm",padding:"lg",radius:"md",withBorder:!0,children:[r.jsx(e,{size:"lg",fw:600,mb:"md",children:s}),r.jsx("div",{style:{height:`${d}px`,width:"100%"},children:t})]});export{h as default};

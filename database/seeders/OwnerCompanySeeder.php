@@ -13,22 +13,22 @@ class OwnerCompanySeeder extends Seeder
     public function run(): void
     {
         OwnerCompany::create([
-            'name' => fake()->company,
+            'name' => 'National Agency for Science and Engineering Infrastructure (NASENI)',
             'logo' => null,
-            'address' => fake()->streetAddress,
-            'postal_code' => fake()->postcode,
-            'city' => fake()->city,
-            'country_id' => fake()->numberBetween(1, 249),
-            'currency_id' => 97,
-            'phone' => fake()->phoneNumber,
-            'web' => 'https://company.com',
-            'tax' => 1000, // 10%
-            'email' => fake()->email,
-            'iban' => fake()->iban,
-            'swift' => fake()->swiftBicNumber,
-            'business_id' => '111111111',
-            'tax_id' => '222222222',
-            'vat' => '333333333',
+            'address' => 'Plot 1687, Cadastral Zone C06, Off Yakubu Gowon Crescent',
+            'postal_code' => '900211',
+            'city' => 'Abuja',
+            'country_id' => 160, // Nigeria
+            'currency_id' => 97, // Nigerian Naira
+            'phone' => '+234 9 461 5000',
+            'web' => 'https://naseni.gov.ng',
+            'tax' => 750, // 7.5% VAT
+            'email' => 'info@naseni.gov.ng',
+            'iban' => null,
+            'swift' => null,
+            'business_id' => 'RC-123456',
+            'tax_id' => 'TIN-987654',
+            'vat' => 'VAT-456789',
         ]);
     }
 }

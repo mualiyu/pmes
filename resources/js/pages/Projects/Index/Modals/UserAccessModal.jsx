@@ -15,12 +15,12 @@ function ModalForm({ item }) {
     route("projects.user_access", item.id),
     {
       users: item.users_with_access
-        .filter((user) => !hasRoles(user, ["admin", "client"]))
+        .filter((user) => !hasRoles(user, ["system administrator", "stakeholder"]))
         .map((i) => i.id.toString()),
       clients: item.users_with_access
         .filter(
           (user) =>
-            hasRoles(user, ["client"]) && user.reason !== "company owner",
+            hasRoles(user, ["stakeholder"]) && user.reason !== "company owner",
         )
         .map((i) => i.id.toString()),
     },
@@ -69,8 +69,8 @@ function ModalForm({ item }) {
           />
 
           <MultiSelect
-            label="Clients"
-            placeholder="Select clients"
+            label="Stakeholders"
+            placeholder="Select stakeholders"
             searchable
             mt="md"
             value={requestPending ? [] : form.data.clients}

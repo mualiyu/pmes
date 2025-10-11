@@ -25,7 +25,7 @@ class UserController extends Controller
             'items' => UserResource::collection(
                 User::searchByQueryString()
                     ->sortByQueryString()
-                    ->withoutRole('client')
+                    ->withoutRole('stakeholder')
                     ->with('roles:id,name')
                     ->when($request->has('archived'), fn ($query) => $query->onlyArchived())
                     ->paginate(12)

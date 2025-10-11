@@ -8,12 +8,15 @@ use Illuminate\Database\Seeder;
 class RoleSeeder extends Seeder
 {
     public static $roles = [
-        'developer',
-        'qa engineer',
-        'designer',
-        'client',
-        'manager',
-        'admin',
+        'system administrator',
+        'program director',
+        'me officer',
+        'project coordinator',
+        'data officer',
+        'finance officer',
+        'directorate head',
+        'vendor representative',
+        'stakeholder',
     ];
 
     /**
@@ -22,7 +25,10 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         foreach (self::$roles as $role) {
-            Role::create(['name' => $role]);
+            Role::firstOrCreate(
+                ['name' => $role],
+                ['guard_name' => 'web']
+            );
         }
     }
 }

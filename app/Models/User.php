@@ -65,7 +65,7 @@ class User extends Authenticatable implements AuditableContract, CanResetPasswor
 
     public function isAdmin(): bool
     {
-        return $this->hasRole('admin');
+        return $this->hasRole('system administrator');
     }
 
     public function isNotAdmin(): bool
@@ -99,7 +99,7 @@ class User extends Authenticatable implements AuditableContract, CanResetPasswor
         return $users->pluck('id')->contains($this->id);
     }
 
-    public static function userDropdownValues($exclude = ['client']): array
+    public static function userDropdownValues($exclude = ['stakeholder']): array
     {
         return self::orderBy('name')
             ->withoutRole($exclude)
@@ -111,7 +111,7 @@ class User extends Authenticatable implements AuditableContract, CanResetPasswor
     public static function clientDropdownValues(): array
     {
         return self::orderBy('name')
-            ->role('client')
+            ->role('stakeholder')
             ->get(['id', 'name'])
             ->map(fn ($i) => ['value' => (string) $i->id, 'label' => $i->name])
             ->toArray();

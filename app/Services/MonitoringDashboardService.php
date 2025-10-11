@@ -87,7 +87,7 @@ class MonitoringDashboardService
             'active' => $activeProjects,
             'archived' => $archivedProjects,
             'with_tasks' => $projectsWithTasks,
-            'avg_completion_rate' => round($avgCompletionRate, 2),
+            'avg_completion_rate' => round((float) $avgCompletionRate, 2),
             'by_status' => $projectsByStatus,
             'completion_rates' => $completionRates->take(10),
         ];
@@ -130,7 +130,7 @@ class MonitoringDashboardService
             'total' => $total,
             'by_status' => $byStatus,
             'completion_rate' => $completionRate,
-            'avg_progress' => round($avgProgress, 2),
+            'avg_progress' => round((float) $avgProgress, 2),
             'due_this_month' => $dueThisMonth,
             'overdue' => $overdue,
         ];
@@ -157,7 +157,7 @@ class MonitoringDashboardService
         $totalRemaining = Budget::sum('remaining_amount');
 
         $utilizationRate = $totalBudget > 0
-            ? round(($totalSpent / $totalBudget) * 100, 2)
+            ? round(((float) $totalSpent / (float) $totalBudget) * 100, 2)
             : 0;
 
         // Top budgets by project
@@ -175,10 +175,10 @@ class MonitoringDashboardService
         return [
             'total' => $total,
             'by_status' => $byStatus,
-            'total_budget' => round($totalBudget, 2),
-            'total_allocated' => round($totalAllocated, 2),
-            'total_spent' => round($totalSpent, 2),
-            'total_remaining' => round($totalRemaining, 2),
+            'total_budget' => round((float) $totalBudget, 2),
+            'total_allocated' => round((float) $totalAllocated, 2),
+            'total_spent' => round((float) $totalSpent, 2),
+            'total_remaining' => round((float) $totalRemaining, 2),
             'utilization_rate' => $utilizationRate,
             'top_budgets' => $topBudgets,
         ];

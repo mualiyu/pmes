@@ -22,7 +22,7 @@ class MyWorkTaskController extends Controller
                 ->with([
                     'clientCompany:id,name',
                     'tasks' => function ($query) use ($user) {
-                        $query->when($user->hasRole('client'), fn ($query) => $query->where('hidden_from_clients', false))
+                        $query->when($user->hasRole('stakeholder'), fn ($query) => $query->where('hidden_from_clients', false))
                             ->where('assigned_to_user_id', $user->id)
                             ->whereNull('completed_at')
                             ->withoutGlobalScope('ordered')

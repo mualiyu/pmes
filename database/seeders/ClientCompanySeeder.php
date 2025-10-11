@@ -13,8 +13,8 @@ class ClientCompanySeeder extends Seeder
      */
     public function run(): void
     {
-        // Get all users with the 'client' role
-        User::role('client')
+        // Get all users with the 'stakeholder' role
+        User::role('stakeholder')
             ->get()
             ->each(function (User $client) {
                 // Create a new ClientCompany
