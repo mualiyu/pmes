@@ -308,7 +308,7 @@ class DemoDataSeeder extends Seeder
             'order_column' => 1,
         ]);
         $task1->labels()->attach($labels->random(2));
-        
+
         TimeLog::create([
             'task_id' => $task1->id,
             'user_id' => $meOfficer->id,
@@ -341,7 +341,7 @@ class DemoDataSeeder extends Seeder
         ]);
         $task2->labels()->attach($labels->random(3));
         $task2->subscribedUsers()->attach([$admin->id, $meOfficer->id]);
-        
+
         TimeLog::create([
             'task_id' => $task2->id,
             'user_id' => $coordinator->id,

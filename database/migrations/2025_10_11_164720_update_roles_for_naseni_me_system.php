@@ -29,9 +29,9 @@ return new class extends Migration
 
         // Create new roles that didn't exist before
         $newRoles = ['finance officer', 'directorate head', 'vendor representative'];
-        
+
         foreach ($newRoles as $roleName) {
-            if (!Role::where('name', $roleName)->exists()) {
+            if (! Role::where('name', $roleName)->exists()) {
                 Role::create([
                     'name' => $roleName,
                     'guard_name' => 'web',
@@ -64,7 +64,7 @@ return new class extends Migration
 
         // Remove the new roles that were added
         $rolesToRemove = ['finance officer', 'directorate head', 'vendor representative'];
-        
+
         foreach ($rolesToRemove as $roleName) {
             Role::where('name', $roleName)->delete();
         }

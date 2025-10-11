@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,7 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->command->info('🌱 Seeding essential data...');
-        
+
         $this->call([
             RoleSeeder::class,
             PermissionSeeder::class,
@@ -24,14 +23,14 @@ class DatabaseSeeder extends Seeder
 
         if ($this->command->confirm('Seed demo data? (2 projects with complete features)', true)) {
             $this->command->info('🌱 Creating demo data...');
-            
+
             $this->call([
                 OwnerCompanySeeder::class,
                 LabelSeeder::class,
                 UserSeeder::class,
                 DemoDataSeeder::class,
             ]);
-            
+
             $this->command->info('✅ Demo data created successfully!');
             $this->command->newLine();
             $this->command->info('📧 Login Credentials:');
