@@ -1,7 +1,9 @@
 import { stopOnIgnoreLink } from "@/utils/domEvents";
 import { getInitials } from "@/utils/user";
+import { redirectTo } from "@/utils/route";
 import { Link } from "@inertiajs/react";
-import { Avatar, Card, Group, Progress, Text, Tooltip } from "@mantine/core";
+import { ActionIcon, Avatar, Card, Group, Progress, Text, Tooltip } from "@mantine/core";
+import { IconCurrencyDollar, IconTarget } from "@tabler/icons-react";
 import ToggleFavorite from "./FavoriteToggle";
 import ProjectCardActions from "./ProjectCardActions";
 import classes from "./css/ProjectCard.module.css";
@@ -12,7 +14,7 @@ export default function ProjectCard({ item }) {
 
   return (
     <Link
-      href={route("projects.tasks", item.id)}
+      href={route("projects.show", item.id)}
       className={classes.link}
       onClick={stopOnIgnoreLink}
     >
@@ -71,7 +73,39 @@ export default function ProjectCard({ item }) {
             )}
           </Avatar.Group>
 
-          <ProjectCardActions item={item} />
+          <Group gap="xs">
+            <Tooltip label="Milestones" withArrow>
+              <ActionIcon
+                variant="light"
+                color="blue"
+                size="lg"
+                data-ignore-link
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  redirectTo("projects.milestones.index", { project: item.id });
+                }}
+              >
+                <IconTarget size={18} />
+              </ActionIcon>
+            </Tooltip>
+            <Tooltip label="Budgets" withArrow>
+              <ActionIcon
+                variant="light"
+                color="green"
+                size="lg"
+                data-ignore-link
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  redirectTo("projects.budgets.index", { project: item.id });
+                }}
+              >
+                <IconCurrencyDollar size={18} />
+              </ActionIcon>
+            </Tooltip>
+            <ProjectCardActions item={item} />
+          </Group>
         </Group>
       </Card>
     </Link>

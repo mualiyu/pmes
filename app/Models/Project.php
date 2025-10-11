@@ -25,6 +25,7 @@ class Project extends Model implements AuditableContract
         'default_pricing_type',
         'rate',
         'client_company_id',
+        'directorate_id',
     ];
 
     protected $searchable = [
@@ -45,6 +46,11 @@ class Project extends Model implements AuditableContract
         return $this->belongsTo(ClientCompany::class);
     }
 
+    public function directorate(): BelongsTo
+    {
+        return $this->belongsTo(ClientCompany::class, 'directorate_id');
+    }
+
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'project_user_access');
@@ -58,6 +64,16 @@ class Project extends Model implements AuditableContract
     public function tasks(): HasMany
     {
         return $this->hasMany(Task::class);
+    }
+
+    public function milestones(): HasMany
+    {
+        return $this->hasMany(Milestone::class);
+    }
+
+    public function budgets(): HasMany
+    {
+        return $this->hasMany(Budget::class);
     }
 
     public function favoritedByAuthUser(): BelongsToMany

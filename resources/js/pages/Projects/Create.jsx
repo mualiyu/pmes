@@ -98,7 +98,7 @@ const ProjectCreate = ({ dropdowns: { companies, users, currencies } }) => {
           />
 
           <Select
-            label='Project Owner'
+            label='Project Owner (Organization/Vendor/Directorate)'
             placeholder='Select organization'
             required
             mt='md'
@@ -109,7 +109,7 @@ const ProjectCreate = ({ dropdowns: { companies, users, currencies } }) => {
           />
 
           <MultiSelect
-            label='Members'
+            label='Members/Agents'
             placeholder='Select users'
             mt='md'
             searchable

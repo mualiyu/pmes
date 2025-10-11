@@ -2,14 +2,20 @@
 
 use App\Http\Controllers\Account\NotificationController;
 use App\Http\Controllers\Account\ProfileController;
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\Client\ClientCompanyController;
 use App\Http\Controllers\Client\ClientUserController;
+use App\Http\Controllers\Client\DirectorateController;
+use App\Http\Controllers\Client\VendorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DropdownValuesController;
 use App\Http\Controllers\Invoice\InvoiceTasksController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\MonitoringDashboardController;
 use App\Http\Controllers\MyWork\ActivityController;
 use App\Http\Controllers\MyWork\MyWorkTaskController;
+use App\Http\Controllers\Project\BudgetController;
+use App\Http\Controllers\Project\MilestoneController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\Settings\LabelController;
@@ -28,17 +34,51 @@ Route::redirect('/', 'dashboard');
 Route::group(['middleware' => ['auth:sanctum']], function () {
     // Dashboard
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+
+    // Monitoring Dashboard
+    Route::get('monitoring/dashboard', [MonitoringDashboardController::class, 'index'])->name('monitoring.dashboard');
+    Route::get('api/monitoring/stats', [MonitoringDashboardController::class, 'stats'])->name('api.monitoring.stats');
+    Route::get('api/monitoring/projects/performance', [MonitoringDashboardController::class, 'projectPerformance'])->name('api.monitoring.projects.performance');
+    Route::get('api/monitoring/projects/stats', [MonitoringDashboardController::class, 'projectStats'])->name('api.monitoring.projects.stats');
+    Route::get('api/monitoring/milestones/stats', [MonitoringDashboardController::class, 'milestoneStats'])->name('api.monitoring.milestones.stats');
+    Route::get('api/monitoring/budgets/stats', [MonitoringDashboardController::class, 'budgetStats'])->name('api.monitoring.budgets.stats');
+    Route::get('api/monitoring/directorates/stats', [MonitoringDashboardController::class, 'directorateStats'])->name('api.monitoring.directorates.stats');
+    Route::get('api/monitoring/trends', [MonitoringDashboardController::class, 'trends'])->name('api.monitoring.trends');
+
     // Route::get('/gantt-chart', [DashboardController::class, 'ganttChart'])->name('gantt-chart');
     // Route::get('/ceo-dashboard', [DashboardController::class, 'ceoDashboard'])->name('ceo-dashboard');
 
     // Projects
-    Route::resource('projects', ProjectController::class)->except(['show']);
+    Route::resource('projects', ProjectController::class);
+
+    // Global Milestones & Budgets
+    Route::get('milestones', [MilestoneController::class, 'globalIndex'])->name('milestones.index');
+    Route::get('budgets', [BudgetController::class, 'globalIndex'])->name('budgets.index');
 
     Route::group(['prefix' => 'projects', 'as' => 'projects.'], function () {
         // PROJECT
         Route::post('{projectId}/restore', [ProjectController::class, 'restore'])->name('restore');
         Route::put('{project}/favorite/toggle', [ProjectController::class, 'favoriteToggle'])->name('favorite.toggle');
         Route::post('{project}/user-access', [ProjectController::class, 'userAccess'])->name('user_access');
+
+        // MILESTONES
+        Route::get('{project}/milestones', [MilestoneController::class, 'index'])->name('milestones.index');
+        Route::get('{project}/milestones/create', [MilestoneController::class, 'create'])->name('milestones.create');
+        Route::post('{project}/milestones', [MilestoneController::class, 'store'])->name('milestones.store');
+        Route::get('{project}/milestones/{milestone}/edit', [MilestoneController::class, 'edit'])->name('milestones.edit')->scopeBindings();
+        Route::put('{project}/milestones/{milestone}', [MilestoneController::class, 'update'])->name('milestones.update')->scopeBindings();
+        Route::delete('{project}/milestones/{milestone}', [MilestoneController::class, 'destroy'])->name('milestones.destroy')->scopeBindings();
+        Route::post('{project}/milestones/{milestoneId}/restore', [MilestoneController::class, 'restore'])->name('milestones.restore');
+
+        // BUDGETS
+        Route::get('{project}/budgets', [BudgetController::class, 'index'])->name('budgets.index');
+        Route::get('{project}/budgets/create', [BudgetController::class, 'create'])->name('budgets.create');
+        Route::post('{project}/budgets', [BudgetController::class, 'store'])->name('budgets.store');
+        Route::get('{project}/budgets/{budget}/edit', [BudgetController::class, 'edit'])->name('budgets.edit')->scopeBindings();
+        Route::put('{project}/budgets/{budget}', [BudgetController::class, 'update'])->name('budgets.update')->scopeBindings();
+        Route::delete('{project}/budgets/{budget}', [BudgetController::class, 'destroy'])->name('budgets.destroy')->scopeBindings();
+        Route::post('{project}/budgets/{budgetId}/restore', [BudgetController::class, 'restore'])->name('budgets.restore');
 
         // TASK GROUPS
         Route::post('{project}/task-groups', [GroupController::class, 'store'])->name('task-groups.store');
@@ -94,6 +134,14 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::resource('companies', ClientCompanyController::class)->except(['show']);
         Route::post('companies/{companyId}/restore', [ClientCompanyController::class, 'restore'])->name('companies.restore');
     });
+
+    // Vendors
+    Route::resource('vendors', VendorController::class)->except(['show']);
+    Route::post('vendors/{vendorId}/restore', [VendorController::class, 'restore'])->name('vendors.restore');
+
+    // Directorates
+    Route::resource('directorates', DirectorateController::class)->except(['show']);
+    Route::post('directorates/{directorateId}/restore', [DirectorateController::class, 'restore'])->name('directorates.restore');
 
     // Users
     Route::resource('users', UserController::class)->except(['show']);

@@ -4,12 +4,15 @@ import { usePage } from "@inertiajs/react";
 import { Group, ScrollArea, Text, rem } from "@mantine/core";
 import {
   IconBuildingSkyscraper,
+  IconChartBar,
+  IconCurrencyDollar,
   IconFileDollar,
   IconGauge,
   IconLayoutList,
   IconListDetails,
   IconReportAnalytics,
   IconSettings,
+  IconTarget,
   IconUsers,
 } from "@tabler/icons-react";
 import { useEffect } from "react";
@@ -30,6 +33,13 @@ export default function Sidebar() {
         active: route().current("dashboard"),
         visible: true,
       },
+      {
+        label: "Admin Dashboard",
+        icon: IconChartBar,
+        link: route("admin.dashboard"),
+        active: route().current("admin.dashboard"),
+        visible: can("view users"), // Only visible to admins
+      },
       // {
       //   label: "NC's Dashboard",
       //   icon: IconGauge,
@@ -41,8 +51,35 @@ export default function Sidebar() {
         label: "Projects",
         icon: IconListDetails,
         link: route("projects.index"),
-        active: route().current("projects.*"),
+        active: route().current("projects.*") && !route().current("projects.*.milestones.*") && !route().current("projects.*.budgets.*"),
         visible: can("view projects"),
+      },
+      {
+        label: "Project Management",
+        icon: IconChartBar,
+        active: route().current("monitoring.*") || route().current("milestones.*") || route().current("budgets.*") || route().current("projects.*.milestones.*") || route().current("projects.*.budgets.*"),
+        opened: route().current("monitoring.*") || route().current("milestones.*") || route().current("budgets.*") || route().current("projects.*.milestones.*") || route().current("projects.*.budgets.*"),
+        visible: can("view projects"),
+        links: [
+          {
+            label: "M&E Dashboard",
+            link: route("monitoring.dashboard"),
+            active: route().current("monitoring.dashboard"),
+            visible: can("view projects"),
+          },
+          {
+            label: "All Milestones",
+            link: route("milestones.index"),
+            active: route().current("milestones.index"),
+            visible: can("view projects"),
+          },
+          {
+            label: "All Budgets",
+            link: route("budgets.index"),
+            active: route().current("budgets.index"),
+            visible: can("view projects"),
+          },
+        ],
       },
       {
         label: "My Work",
@@ -66,10 +103,10 @@ export default function Sidebar() {
         ],
       },
       {
-        label: "Stakeholders",
+        label: "Vendors/Directorate",
         icon: IconBuildingSkyscraper,
-        active: route().current("clients.*"),
-        opened: route().current("clients.*"),
+        active: route().current("clients.*") || route().current("vendors.*") || route().current("directorates.*"),
+        opened: route().current("clients.*") || route().current("vendors.*") || route().current("directorates.*"),
         visible: can("view client users") || can("view client companies"),
         links: [
           // {
@@ -79,9 +116,21 @@ export default function Sidebar() {
           //   visible: can("view client users"),
           // },
           {
-            label: "Organizations",
+            label: "Organizations(General)",
             link: route("clients.companies.index"),
             active: route().current("clients.companies.*"),
+            visible: can("view client companies"),
+          },
+          {
+            label: "Vendors",
+            link: route("vendors.index"),
+            active: route().current("vendors.*"),
+            visible: can("view client companies"),
+          },
+          {
+            label: "Directorate",
+            link: route("directorates.index"),
+            active: route().current("directorates.*"),
             visible: can("view client companies"),
           },
         ],

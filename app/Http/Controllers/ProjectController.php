@@ -48,6 +48,29 @@ class ProjectController extends Controller
         ]);
     }
 
+    public function show(Project $project)
+    {
+        $project->load([
+            'clientCompany:id,name,email,phone,address,city',
+            'directorate:id,name',
+            'users:id,name,email,avatar',
+            'milestones' => fn($query) => $query->orderBy('order')->orderBy('start_date'),
+            'budgets' => fn($query) => $query->with('currency:id,name,code,symbol')->orderBy('created_at', 'desc'),
+        ])
+        ->loadCount([
+            'tasks AS all_tasks_count',
+            'tasks AS completed_tasks_count' => fn ($query) => $query->whereNotNull('completed_at'),
+            'tasks AS overdue_tasks_count' => fn ($query) => $query->whereNull('completed_at')->whereDate('due_on', '<', now()),
+            'milestones AS total_milestones_count',
+            'milestones AS completed_milestones_count' => fn ($query) => $query->where('status', 'completed'),
+            'budgets AS total_budgets_count',
+        ]);
+
+        return Inertia::render('Projects/Show', [
+            'project' => $project,
+        ]);
+    }
+
     public function create()
     {
         return Inertia::render('Projects/Create', [

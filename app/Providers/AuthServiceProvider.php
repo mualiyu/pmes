@@ -16,7 +16,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        //
+        \App\Models\Milestone::class => \App\Policies\MilestonePolicy::class,
+        \App\Models\Budget::class => \App\Policies\BudgetPolicy::class,
     ];
 
     /**
