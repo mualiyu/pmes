@@ -29,24 +29,6 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-// TEMPORARY - Remove after creating link!
-Route::get('/create-storage-link', function () {
-    if (app()->environment('production')) {
-        abort(403, 'Not allowed in production');
-    }
-    
-    $target = storage_path('app/public');
-    $link = public_path('storage');
-    
-    if (file_exists($link)) {
-        return 'Storage link already exists!';
-    }
-    
-    symlink($target, $link);
-    
-    return 'Storage link created successfully!';
-})->middleware('auth');
-
 Route::redirect('/', 'dashboard');
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
