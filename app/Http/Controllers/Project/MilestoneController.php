@@ -144,4 +144,3 @@ class MilestoneController extends Controller
             ->success('Milestone restored', 'The milestone was successfully restored.');
     }
 }
-

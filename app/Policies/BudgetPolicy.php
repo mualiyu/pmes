@@ -57,4 +57,3 @@ class BudgetPolicy
         return $user->hasPermissionTo('restore project') && $user->hasProjectAccess($budget->project);
     }
 }
-

@@ -10,4 +10,3 @@ enum ClientCompanyType: string
     case DIRECTORATE = 'directorate';
     case GENERAL = 'general';
 }
-

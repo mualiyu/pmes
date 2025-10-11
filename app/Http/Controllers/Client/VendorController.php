@@ -90,4 +90,3 @@ class VendorController extends Controller
         return redirect()->back()->success('Vendor restored', 'The restoring of the vendor was completed successfully.');
     }
 }
-

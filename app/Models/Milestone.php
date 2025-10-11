@@ -112,4 +112,3 @@ class Milestone extends Model implements AuditableContract
         return $query->where('status', MilestoneStatus::DELAYED);
     }
 }
-

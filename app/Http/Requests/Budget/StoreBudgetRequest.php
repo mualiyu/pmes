@@ -41,4 +41,3 @@ class StoreBudgetRequest extends FormRequest
         ];
     }
 }
-

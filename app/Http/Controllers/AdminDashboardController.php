@@ -252,4 +252,3 @@ class AdminDashboardController extends Controller
             ->toArray();
     }
 }
-

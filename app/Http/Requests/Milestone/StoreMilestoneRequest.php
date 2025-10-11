@@ -41,4 +41,3 @@ class StoreMilestoneRequest extends FormRequest
         ];
     }
 }
-

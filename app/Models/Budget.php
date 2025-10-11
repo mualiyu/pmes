@@ -126,4 +126,3 @@ class Budget extends Model implements AuditableContract
         return $query->where('status', BudgetStatus::EXCEEDED);
     }
 }
-

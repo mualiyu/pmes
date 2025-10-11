@@ -40,4 +40,3 @@ class UpdateBudgetRequest extends FormRequest
         ];
     }
 }
-

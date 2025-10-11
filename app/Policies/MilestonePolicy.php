@@ -57,4 +57,3 @@ class MilestonePolicy
         return $user->hasPermissionTo('restore project') && $user->hasProjectAccess($milestone->project);
     }
 }
-

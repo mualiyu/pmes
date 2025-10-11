@@ -12,4 +12,3 @@ enum BudgetStatus: string
     case EXCEEDED = 'exceeded';
     case CLOSED = 'closed';
 }
-

@@ -90,4 +90,3 @@ class DirectorateController extends Controller
         return redirect()->back()->success('Directorate restored', 'The restoring of the directorate was completed successfully.');
     }
 }
-

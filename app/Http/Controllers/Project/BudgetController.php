@@ -163,4 +163,3 @@ class BudgetController extends Controller
             ->success('Budget restored', 'The budget was successfully restored.');
     }
 }
-

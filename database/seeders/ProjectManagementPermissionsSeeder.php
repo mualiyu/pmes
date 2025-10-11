@@ -73,4 +73,3 @@ class ProjectManagementPermissionsSeeder extends Seeder
         echo "\n🎉 Project Management permissions seeded successfully!\n";
     }
 }
-

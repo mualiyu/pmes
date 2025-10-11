@@ -12,4 +12,3 @@ enum MilestoneStatus: string
     case DELAYED = 'delayed';
     case CANCELLED = 'cancelled';
 }
-

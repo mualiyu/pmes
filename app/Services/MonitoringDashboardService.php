@@ -320,4 +320,3 @@ class MonitoringDashboardService
             ->toArray();
     }
 }
-
