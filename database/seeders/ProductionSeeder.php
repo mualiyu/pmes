@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\OwnerCompany;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -34,7 +33,7 @@ class ProductionSeeder extends Seeder
         $this->command->newLine();
         $this->command->warn('⚠️  IMPORTANT: Change the default admin credentials immediately!');
         $this->command->info('📧 Default Login:');
-        $this->command->info('   Email: ' . config('auth.admin.email', 'admin@naseni.gov.ng'));
-        $this->command->info('   Password: ' . config('auth.admin.password', 'password'));
+        $this->command->info('   Email: '.config('auth.admin.email', 'admin@naseni.gov.ng'));
+        $this->command->info('   Password: '.config('auth.admin.password', 'password'));
     }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Models\ClientCompany;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Support\Collection;
@@ -261,20 +260,20 @@ class PermissionService
         if (self::$projectsThatUserCanAccess !== null) {
             return self::$projectsThatUserCanAccess;
         }
-        
+
         // System Administrator and Program Director have access to all projects
         if ($user->hasRole(['system administrator', 'program director'])) {
             return self::$projectsThatUserCanAccess = Project::all();
         }
-        
+
         // Get projects user has explicit access to
         $projects = collect($user->projects->toArray());
-        
+
         // Get projects from user's client company (if assigned to one)
         if ($user->client_company_id) {
             $user->load('clientCompanies.projects');
             $clientCompany = $user->clientCompanies;
-            
+
             if ($clientCompany && $clientCompany->projects) {
                 $projects = $projects->merge($clientCompany->projects->toArray());
             }

@@ -288,7 +288,7 @@ class AdminDashboardController extends Controller
         ];
 
         $avgProgress = Milestone::avg('progress') ?? 0;
-        
+
         $dueThisMonth = Milestone::whereMonth('end_date', now()->month)
             ->whereYear('end_date', now()->year)
             ->whereNotIn('status', [MilestoneStatus::COMPLETED, MilestoneStatus::CANCELLED])

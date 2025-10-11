@@ -85,7 +85,7 @@ class UserSeeder extends Seeder
         foreach ($users as $userData) {
             $role = $userData['role'];
             unset($userData['role']);
-            
+
             User::create(array_merge($userData, [
                 'password' => bcrypt('password'),
                 'rate' => rand(5000, 15000), // hourly rate in cents
