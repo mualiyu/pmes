@@ -86,7 +86,9 @@ const BudgetCreate = ({ dropdowns: { currencies } }) => {
                 label="Name"
                 placeholder="Enter budget name"
                 required
-                {...form.getInputProps("name")}
+                value={form.data.name}
+                onChange={(e) => updateValue("name", e.target.value)}
+                error={form.errors.name}
               />
             </Grid.Col>
 
@@ -95,7 +97,9 @@ const BudgetCreate = ({ dropdowns: { currencies } }) => {
                 label="Description"
                 placeholder="Describe this budget"
                 rows={3}
-                {...form.getInputProps("description")}
+                value={form.data.description}
+                onChange={(e) => updateValue("description", e.target.value)}
+                error={form.errors.description}
               />
             </Grid.Col>
 
@@ -105,7 +109,9 @@ const BudgetCreate = ({ dropdowns: { currencies } }) => {
                 placeholder="Select status"
                 data={statusOptions}
                 required
-                {...form.getInputProps("status")}
+                value={form.data.status}
+                onChange={(value) => updateValue("status", value)}
+                error={form.errors.status}
               />
             </Grid.Col>
 
@@ -114,7 +120,9 @@ const BudgetCreate = ({ dropdowns: { currencies } }) => {
                 label="Currency"
                 placeholder="Select currency"
                 data={currencies}
-                {...form.getInputProps("currency_id")}
+                value={form.data.currency_id}
+                onChange={(value) => updateValue("currency_id", value)}
+                error={form.errors.currency_id}
               />
             </Grid.Col>
 
@@ -127,7 +135,9 @@ const BudgetCreate = ({ dropdowns: { currencies } }) => {
                 prefix="₦ "
                 thousandSeparator=","
                 required
-                {...form.getInputProps("total_amount")}
+                value={form.data.total_amount}
+                onChange={(value) => updateValue("total_amount", value)}
+                error={form.errors.total_amount}
               />
             </Grid.Col>
 
@@ -139,7 +149,9 @@ const BudgetCreate = ({ dropdowns: { currencies } }) => {
                 decimalScale={2}
                 prefix="₦ "
                 thousandSeparator=","
-                {...form.getInputProps("allocated_amount")}
+                value={form.data.allocated_amount}
+                onChange={(value) => updateValue("allocated_amount", value)}
+                error={form.errors.allocated_amount}
               />
             </Grid.Col>
 
@@ -151,7 +163,9 @@ const BudgetCreate = ({ dropdowns: { currencies } }) => {
                 decimalScale={2}
                 prefix="₦ "
                 thousandSeparator=","
-                {...form.getInputProps("spent_amount")}
+                value={form.data.spent_amount}
+                onChange={(value) => updateValue("spent_amount", value)}
+                error={form.errors.spent_amount}
               />
             </Grid.Col>
 
@@ -164,7 +178,7 @@ const BudgetCreate = ({ dropdowns: { currencies } }) => {
                 prefix="₦ "
                 thousandSeparator=","
                 disabled
-                {...form.getInputProps("remaining_amount")}
+                value={form.data.total_amount - form.data.spent_amount}
               />
             </Grid.Col>
 
@@ -172,7 +186,9 @@ const BudgetCreate = ({ dropdowns: { currencies } }) => {
               <TextInput
                 label="Fiscal Year Start"
                 type="date"
-                {...form.getInputProps("fiscal_year_start")}
+                value={form.data.fiscal_year_start}
+                onChange={(e) => updateValue("fiscal_year_start", e.target.value)}
+                error={form.errors.fiscal_year_start}
               />
             </Grid.Col>
 
@@ -180,7 +196,9 @@ const BudgetCreate = ({ dropdowns: { currencies } }) => {
               <TextInput
                 label="Fiscal Year End"
                 type="date"
-                {...form.getInputProps("fiscal_year_end")}
+                value={form.data.fiscal_year_end}
+                onChange={(e) => updateValue("fiscal_year_end", e.target.value)}
+                error={form.errors.fiscal_year_end}
               />
             </Grid.Col>
 
@@ -189,7 +207,9 @@ const BudgetCreate = ({ dropdowns: { currencies } }) => {
                 label="Notes"
                 placeholder="Additional notes or comments"
                 rows={3}
-                {...form.getInputProps("notes")}
+                value={form.data.notes}
+                onChange={(e) => updateValue("notes", e.target.value)}
+                error={form.errors.notes}
               />
             </Grid.Col>
           </Grid>
