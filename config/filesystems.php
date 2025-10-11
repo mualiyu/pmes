@@ -80,4 +80,26 @@ return [
         public_path('storage') => storage_path('app/public'),
     ],
 
+/*
+|--------------------------------------------------------------------------
+| Filesystem Permissions
+|--------------------------------------------------------------------------
+|
+| Here you may configure the default permissions for files and directories
+| that are created by the framework when using the local driver. You may
+| set permissions for both files and directories individually below.
+|
+*/
+
+'permissions' => [
+    'file' => [
+        'public' => 0644,
+        'private' => 0644,
+    ],
+    'dir' => [
+        'public' => 0755,
+        'private' => 0755,
+    ],
+],
+
 ];
