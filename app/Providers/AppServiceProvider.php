@@ -32,6 +32,6 @@ class AppServiceProvider extends ServiceProvider
             );
         }
 
-        umask(0022);
+        umask(0002);
     }
 }
